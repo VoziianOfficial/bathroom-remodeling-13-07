@@ -1,0 +1,1893 @@
+/* =========================================================
+   BathNice — All Services Page
+   Inner hero and exactly 10 service-overview sections.
+   ========================================================= */
+
+/* =========================================================
+   1. Services Inner Hero
+   ========================================================= */
+
+.services-hero .inner-hero__media img {
+    object-position: center 52%;
+}
+
+.services-hero .inner-hero__overlay {
+    background: rgba(17, 18, 15, 0.62);
+}
+
+.services-hero h1 {
+    max-width: 13ch;
+}
+
+/* =========================================================
+   2. Section 01 — Six-Service Editorial Index
+   ========================================================= */
+
+.services-index {
+    overflow: hidden;
+}
+
+.services-index__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.services-index__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.services-index__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+}
+
+.services-index__item {
+    position: relative;
+    min-width: 0;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-white);
+}
+
+.services-index__item>a {
+    position: relative;
+    display: grid;
+    min-height: 39rem;
+    grid-template-rows: auto 13.5rem minmax(0, 1fr);
+    overflow: hidden;
+    padding: clamp(1.25rem, 2.4vw, 2rem);
+}
+
+.services-index__number {
+    padding-bottom: var(--space-5);
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.services-index__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.services-index__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-index__copy {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    padding-top: clamp(1.5rem, 3vw, 2.25rem);
+    padding-right: 3rem;
+}
+
+.services-index__copy>svg {
+    width: 2.65rem;
+    height: 2.65rem;
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.services-index__copy h3 {
+    max-width: 10ch;
+    font-size: clamp(1.75rem, 2.7vw, 2.65rem);
+}
+
+.services-index__copy p {
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    line-height: 1.7;
+}
+
+.services-index__arrow {
+    position: absolute;
+    right: clamp(1.25rem, 2.4vw, 2rem);
+    bottom: clamp(1.25rem, 2.4vw, 2rem);
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-base);
+}
+
+.services-index__arrow svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.services-index__item:hover .services-index__media img,
+.services-index__item:focus-within .services-index__media img {
+    transform: scale(1.045);
+}
+
+.services-index__item:hover .services-index__copy>svg,
+.services-index__item:focus-within .services-index__copy>svg {
+    color: var(--color-gold);
+    transform: translateY(-0.2rem);
+}
+
+.services-index__item:hover .services-index__arrow,
+.services-index__item:focus-within .services-index__arrow {
+    border-color: var(--color-emerald);
+    background: var(--color-emerald);
+    color: var(--color-white);
+    transform: rotate(8deg);
+}
+
+/* =========================================================
+   3. Section 02 — Full Remodeling Feature
+   ========================================================= */
+
+.services-full-feature {
+    display: grid;
+    min-height: clamp(41rem, 55vw, 52rem);
+    grid-template-columns: minmax(0, 1.08fr) minmax(28rem, 0.92fr);
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.services-full-feature__visual {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--color-black-soft);
+}
+
+.services-full-feature__visual>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-full-feature__image-label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1rem 1.5rem;
+    background: var(--color-gold);
+    color: var(--color-ink);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.services-full-feature__content {
+    display: grid;
+    align-items: center;
+    min-width: 0;
+}
+
+.services-full-feature__inner {
+    display: grid;
+    width: 100%;
+    max-width: 45rem;
+    gap: var(--space-6);
+    padding:
+        clamp(4rem, 7vw, 7rem) clamp(2rem, 5vw, 5.5rem);
+}
+
+.services-full-feature__inner h2 {
+    max-width: 11ch;
+}
+
+.services-full-feature__inner .lead {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.services-full-feature__details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border-light);
+    border-left: 1px solid var(--color-border-light);
+}
+
+.services-full-feature__details>div {
+    display: grid;
+    min-height: 8.75rem;
+    align-content: start;
+    gap: 0.7rem;
+    padding: 1.25rem;
+    border-right: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.services-full-feature__details span {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.services-full-feature__details p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.8rem;
+    line-height: 1.65;
+}
+
+.services-full-feature__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-5);
+}
+
+.services-full-feature__inner .platform-notice {
+    border-bottom: 0;
+}
+
+.services-full-feature:hover .services-full-feature__visual>img {
+    transform: scale(1.025);
+}
+
+/* =========================================================
+   4. Section 03 — Shower and Bathtub Dual Feature
+   ========================================================= */
+
+.services-water-features {
+    overflow: hidden;
+}
+
+.services-water-features__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.services-water-features__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.services-water-features__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.services-water-features__panel {
+    display: grid;
+    min-width: 0;
+    background: var(--color-white);
+}
+
+.services-water-features__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.services-water-features__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-water-features__media>span {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    background: rgba(17, 18, 15, 0.65);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+}
+
+.services-water-features__copy {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 1px solid var(--color-border);
+    border-top: 0;
+}
+
+.services-water-features__copy>svg {
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+}
+
+.services-water-features__copy h3 {
+    max-width: 11ch;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.services-water-features__copy>p {
+    color: var(--color-text-muted);
+}
+
+.services-water-features__copy ul {
+    display: grid;
+    margin-block: var(--space-2);
+    border-top: 1px solid var(--color-border);
+}
+
+.services-water-features__copy li {
+    position: relative;
+    padding: 0.85rem 0 0.85rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.services-water-features__copy li::before {
+    position: absolute;
+    top: 1.15rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+    content: "";
+}
+
+.services-water-features__panel:hover .services-water-features__media img,
+.services-water-features__panel:focus-within .services-water-features__media img {
+    transform: scale(1.04);
+}
+
+/* =========================================================
+   5. Section 04 — Tile Material Story
+   ========================================================= */
+
+.services-tile-story {
+    overflow: hidden;
+}
+
+.services-tile-story__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(22rem, 0.88fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.services-tile-story__copy {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.services-tile-story__copy h2 {
+    max-width: 11ch;
+}
+
+.services-tile-story__rows {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.services-tile-story__rows article {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.services-tile-story__rows article>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.services-tile-story__rows article>div {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.services-tile-story__rows h3 {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.services-tile-story__rows p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.services-tile-story__copy .button {
+    width: fit-content;
+}
+
+.services-tile-story__visual {
+    position: relative;
+    min-height: 46rem;
+    padding-right: 9%;
+    padding-bottom: 4rem;
+}
+
+.services-tile-story__main {
+    position: absolute;
+    inset: 0 9% 4rem 0;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.services-tile-story__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-tile-story__sample {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    width: min(23rem, 55%);
+    gap: 0.55rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-paper);
+}
+
+.services-tile-story__sample span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.services-tile-story__sample strong {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* =========================================================
+   6. Section 05 — Vanity and Storage Switcher
+   ========================================================= */
+
+.services-vanity-switcher {
+    overflow: hidden;
+}
+
+.services-vanity-switcher__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.services-vanity-switcher__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.services-vanity-switcher__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.2fr) minmax(22rem, 0.8fr);
+    align-items: stretch;
+    gap: clamp(3rem, 7vw, 7rem);
+}
+
+.services-vanity-switcher__visual {
+    position: relative;
+    min-height: 43rem;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.services-vanity-switcher__visual>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-vanity-switcher__visual-label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1rem 1.5rem;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.services-vanity-switcher__content {
+    display: grid;
+    align-content: center;
+    gap: var(--space-8);
+}
+
+.services-vanity-switcher__tabs {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.services-vanity-switcher__tab {
+    position: relative;
+    display: grid;
+    width: 100%;
+    min-height: 5rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-4);
+    padding: 1rem 2.5rem 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    text-align: left;
+    transition:
+        color var(--transition-fast),
+        padding-left var(--transition-base);
+}
+
+.services-vanity-switcher__tab::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--color-emerald);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-base);
+}
+
+.services-vanity-switcher__tab>span {
+    color: var(--color-gold);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.services-vanity-switcher__tab:hover,
+.services-vanity-switcher__tab:focus-visible,
+.services-vanity-switcher__tab.is-active,
+.services-vanity-switcher__tab[aria-selected="true"] {
+    padding-left: 0.55rem;
+    color: var(--color-ink);
+}
+
+.services-vanity-switcher__tab.is-active::after,
+.services-vanity-switcher__tab[aria-selected="true"]::after {
+    transform: scaleX(1);
+}
+
+.services-vanity-switcher__panel {
+    display: grid;
+    min-height: 17rem;
+    align-content: start;
+    gap: var(--space-4);
+}
+
+.services-vanity-switcher__panel>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.services-vanity-switcher__panel h3 {
+    max-width: 13ch;
+    font-size: clamp(2rem, 3.3vw, 3.2rem);
+}
+
+.services-vanity-switcher__panel p {
+    color: var(--color-text-muted);
+}
+
+.services-vanity-switcher__panel strong {
+    color: var(--color-emerald);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.services-vanity-switcher__panel .text-link {
+    margin-top: var(--space-2);
+}
+
+/* =========================================================
+   7. Section 06 — Accessible Bathroom Feature
+   ========================================================= */
+
+.services-accessible-feature {
+    position: relative;
+    min-height: clamp(39rem, 52vw, 48rem);
+    overflow: hidden;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.services-accessible-feature__media,
+.services-accessible-feature__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.services-accessible-feature__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-accessible-feature__overlay {
+    background: rgba(17, 18, 15, 0.62);
+}
+
+.services-accessible-feature__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    min-height: inherit;
+    align-items: center;
+}
+
+.services-accessible-feature__copy {
+    display: grid;
+    max-width: 51rem;
+    gap: var(--space-6);
+    padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.services-accessible-feature__copy h2 {
+    max-width: 12ch;
+}
+
+.services-accessible-feature__copy>p {
+    max-width: 43rem;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.services-accessible-feature__factors {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.services-accessible-feature__factors>div {
+    display: grid;
+    min-height: 8.5rem;
+    place-items: center;
+    align-content: center;
+    gap: var(--space-3);
+    padding: 1rem 0.75rem;
+    text-align: center;
+}
+
+.services-accessible-feature__factors>div+div {
+    border-left: 1px solid var(--color-border-light);
+}
+
+.services-accessible-feature__factors svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--color-gold-light);
+    stroke-width: 1.45;
+}
+
+.services-accessible-feature__factors span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.services-accessible-feature__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.services-accessible-feature__actions p {
+    max-width: 24rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.75rem;
+    line-height: 1.65;
+}
+
+.services-accessible-feature:hover .services-accessible-feature__media img {
+    transform: scale(1.025);
+}
+
+/* =========================================================
+   8. Section 07 — Service Scope Comparison
+   ========================================================= */
+
+.services-comparison {
+    overflow: hidden;
+}
+
+.services-comparison__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.services-comparison__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.services-comparison__scroll {
+    width: 100%;
+    overflow-x: auto;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--color-gold) var(--color-stone-100);
+}
+
+.services-comparison__scroll:focus-visible {
+    outline-offset: 0.25rem;
+}
+
+.services-comparison__table {
+    min-width: 68rem;
+    table-layout: fixed;
+}
+
+.services-comparison__table th,
+.services-comparison__table td {
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    text-align: left;
+}
+
+.services-comparison__table th:last-child,
+.services-comparison__table td:last-child {
+    border-right: 0;
+}
+
+.services-comparison__table tbody tr:last-child th,
+.services-comparison__table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.services-comparison__table thead th {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.services-comparison__table thead th:nth-child(1) {
+    width: 23%;
+}
+
+.services-comparison__table thead th:nth-child(2) {
+    width: 27%;
+}
+
+.services-comparison__table thead th:nth-child(3) {
+    width: 42%;
+}
+
+.services-comparison__table thead th:nth-child(4) {
+    width: 8%;
+    text-align: center;
+}
+
+.services-comparison__table tbody th {
+    background: var(--color-paper);
+}
+
+.services-comparison__table tbody th>span {
+    display: block;
+    margin-top: var(--space-3);
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    line-height: 1.1;
+}
+
+.services-comparison__table tbody th>svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+}
+
+.services-comparison__table tbody td {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.75;
+}
+
+.services-comparison__table tbody td:last-child {
+    text-align: center;
+}
+
+.services-comparison__table tbody td:last-child a {
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-ink);
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-base);
+}
+
+.services-comparison__table tbody td:last-child a:hover,
+.services-comparison__table tbody td:last-child a:focus-visible {
+    border-color: var(--color-emerald);
+    background: var(--color-emerald);
+    color: var(--color-white);
+    transform: rotate(8deg);
+}
+
+.services-comparison__table tbody td:last-child svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* =========================================================
+   9. Section 08 — Project Priority Slider
+   ========================================================= */
+
+.services-priorities {
+    overflow: hidden;
+}
+
+.services-priorities__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--space-7);
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.services-priorities__controls {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.services-priorities__slider {
+    overflow: visible;
+}
+
+.services-priorities__slide {
+    display: grid;
+    width: min(28rem, 34vw);
+    min-height: 28rem;
+    align-content: start;
+    gap: var(--space-4);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.services-priorities__slide>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.services-priorities__slide>svg {
+    width: 3.1rem;
+    height: 3.1rem;
+    margin-block: var(--space-4);
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.services-priorities__slide h3 {
+    max-width: 10ch;
+    font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+}
+
+.services-priorities__slide p {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.services-priorities__slide>a {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: var(--space-5);
+    color: var(--color-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.services-priorities__slide>a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0.25rem;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.services-priorities__slide>a svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--transition-base);
+}
+
+.services-priorities__slide:hover,
+.services-priorities__slide:focus-within {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    transform: translateY(-0.35rem);
+}
+
+.services-priorities__slide:hover>svg,
+.services-priorities__slide:focus-within>svg {
+    color: var(--color-gold-light);
+    transform: translateY(-0.2rem);
+}
+
+.services-priorities__slide:hover p,
+.services-priorities__slide:focus-within p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.services-priorities__slide:hover>a,
+.services-priorities__slide:focus-within>a {
+    color: var(--color-white);
+}
+
+.services-priorities__slide:hover>a::after,
+.services-priorities__slide:focus-within>a::after {
+    transform: scaleX(1);
+}
+
+.services-priorities__slide:hover>a svg,
+.services-priorities__slide:focus-within>a svg {
+    transform: translateX(0.25rem);
+}
+
+.services-priorities__footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.services-priorities__count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.services-priorities__count span:first-child {
+    color: var(--color-emerald);
+}
+
+/* =========================================================
+   10. Section 09 — Provider Questions
+   ========================================================= */
+
+.services-provider-questions {
+    overflow: visible;
+}
+
+.services-provider-questions__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(20rem, 0.78fr) minmax(0, 1.22fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.services-provider-questions__intro {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.services-provider-questions__intro h2 {
+    max-width: 10.5ch;
+}
+
+.services-provider-questions__intro>p {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.services-provider-questions__intro .platform-notice {
+    border-bottom: 0;
+}
+
+.services-provider-questions__accordion .accordion__trigger {
+    grid-template-columns:
+        3rem minmax(0, 1fr) auto;
+}
+
+.services-provider-questions__number {
+    color: var(--color-gold-light);
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2.45rem);
+    opacity: 0.65;
+}
+
+/* =========================================================
+   11. Section 10 — Services FAQ
+   ========================================================= */
+
+.services-faq {
+    overflow: hidden;
+}
+
+.services-faq__heading {
+    display: grid;
+    max-width: 59rem;
+    gap: var(--space-5);
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.services-faq__heading h2 {
+    max-width: 13ch;
+}
+
+.services-faq__accordion {
+    border-top: 1px solid var(--color-border);
+}
+
+.services-faq__item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.services-faq__trigger {
+    display: grid;
+    width: 100%;
+    min-height: 7.5rem;
+    grid-template-columns:
+        4rem minmax(0, 1fr) 3rem;
+    align-items: center;
+    gap: var(--space-5);
+    padding-block: 1.5rem;
+    text-align: left;
+}
+
+.services-faq__number {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 3rem);
+    opacity: 0.55;
+}
+
+.services-faq__question {
+    max-width: 49rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.55rem, 2.6vw, 2.4rem);
+    line-height: 1.08;
+}
+
+.services-faq__icon {
+    position: relative;
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    transition:
+        border-color var(--transition-base),
+        background-color var(--transition-base);
+}
+
+.services-faq__icon::before,
+.services-faq__icon::after {
+    position: absolute;
+    width: 0.9rem;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transition: transform var(--transition-base);
+}
+
+.services-faq__icon::after {
+    transform: rotate(90deg);
+}
+
+.services-faq__trigger:hover .services-faq__icon,
+.services-faq__trigger:focus-visible .services-faq__icon {
+    border-color: var(--color-gold);
+    background: var(--color-gold);
+}
+
+.services-faq__trigger[aria-expanded="true"] .services-faq__icon::after {
+    transform: rotate(0deg);
+}
+
+.services-faq__panel {
+    overflow: hidden;
+    transition: height 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-faq__answer {
+    padding:
+        0 5rem 2rem 5.5rem;
+}
+
+.services-faq__answer p {
+    max-width: 55rem;
+    color: var(--color-text-muted);
+}
+
+.services-faq__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-7);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.services-faq__footer>p {
+    max-width: 48rem;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   12. Wide Desktop
+   ========================================================= */
+
+@media (max-width: 1280px) {
+    .services-index__item>a {
+        min-height: 37rem;
+    }
+
+    .services-full-feature {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(27rem, 0.9fr);
+    }
+
+    .services-full-feature__inner {
+        padding-inline: 3.5rem;
+    }
+
+    .services-tile-story__visual {
+        min-height: 41rem;
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 38rem;
+    }
+
+    .services-accessible-feature__copy {
+        max-width: 48rem;
+    }
+
+    .services-accessible-feature__factors {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .services-accessible-feature__factors>div:nth-child(4) {
+        border-left: 0;
+        border-top: 1px solid var(--color-border-light);
+    }
+
+    .services-accessible-feature__factors>div:nth-child(5),
+    .services-accessible-feature__factors>div:nth-child(6) {
+        border-top: 1px solid var(--color-border-light);
+    }
+
+    .services-priorities__slide {
+        width: min(27rem, 37vw);
+    }
+}
+
+/* =========================================================
+   13. Navigation Breakpoint
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .services-index__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-index__item>a {
+        min-height: 34rem;
+    }
+
+    .services-full-feature {
+        min-height: 42rem;
+        grid-template-columns:
+            minmax(0, 1fr) minmax(25rem, 0.92fr);
+    }
+
+    .services-full-feature__inner {
+        padding-inline: 2.75rem;
+    }
+
+    .services-full-feature__details {
+        grid-template-columns: 1fr;
+    }
+
+    .services-full-feature__details>div {
+        min-height: 0;
+    }
+
+    .services-tile-story__layout {
+        gap: 4rem;
+    }
+
+    .services-tile-story__visual {
+        min-height: 36rem;
+    }
+
+    .services-vanity-switcher__layout {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(19rem, 0.72fr);
+        gap: 4rem;
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 34rem;
+    }
+
+    .services-accessible-feature__copy {
+        max-width: 44rem;
+    }
+
+    .services-provider-questions__layout {
+        grid-template-columns:
+            minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+        gap: 4rem;
+    }
+}
+
+/* =========================================================
+   14. Tablet
+   ========================================================= */
+
+@media (max-width: 960px) {
+
+    .services-index__heading,
+    .services-water-features__heading,
+    .services-vanity-switcher__heading,
+    .services-comparison__heading {
+        grid-template-columns: 1fr;
+    }
+
+    .services-index__heading .lead,
+    .services-water-features__heading .lead,
+    .services-vanity-switcher__heading .lead,
+    .services-comparison__heading .lead {
+        justify-self: start;
+    }
+
+    .services-full-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .services-full-feature__visual {
+        min-height: 35rem;
+    }
+
+    .services-full-feature__inner {
+        max-width: 52rem;
+        padding:
+            5rem var(--page-gutter);
+    }
+
+    .services-full-feature__details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-water-features__copy {
+        padding: 2rem;
+    }
+
+    .services-tile-story__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .services-tile-story__copy {
+        max-width: 48rem;
+    }
+
+    .services-tile-story__visual {
+        width: min(47rem, 100%);
+        min-height: 43rem;
+        margin-left: auto;
+    }
+
+    .services-vanity-switcher__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 38rem;
+    }
+
+    .services-vanity-switcher__content {
+        grid-template-columns:
+            minmax(17rem, 0.55fr) minmax(0, 0.45fr);
+        align-items: start;
+        gap: 3rem;
+    }
+
+    .services-accessible-feature {
+        min-height: 44rem;
+    }
+
+    .services-accessible-feature__copy {
+        max-width: 46rem;
+    }
+
+    .services-priorities__slide {
+        width: min(27rem, 56vw);
+    }
+
+    .services-provider-questions__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .services-provider-questions__intro {
+        max-width: 48rem;
+    }
+}
+
+/* =========================================================
+   15. Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .services-hero .inner-hero__media img {
+        object-position: 61% center;
+    }
+
+    .services-index__list {
+        grid-template-columns: 1fr;
+    }
+
+    .services-index__item>a {
+        min-height: 0;
+        grid-template-columns: 7.5rem minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 0 var(--space-5);
+        padding: 1.25rem;
+    }
+
+    .services-index__number {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        padding-bottom: 1rem;
+    }
+
+    .services-index__media {
+        grid-column: 1;
+        grid-row: 2;
+        min-height: 11rem;
+    }
+
+    .services-index__copy {
+        grid-column: 2;
+        grid-row: 2;
+        align-content: start;
+        padding: 0 2.75rem 0 0;
+    }
+
+    .services-index__copy>svg {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .services-index__copy h3 {
+        font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+
+    .services-index__copy p {
+        font-size: 0.78rem;
+    }
+
+    .services-index__arrow {
+        right: 1.25rem;
+        bottom: 1.25rem;
+    }
+
+    .services-full-feature__visual {
+        min-height: 27rem;
+    }
+
+    .services-full-feature__inner {
+        padding-block: 4rem;
+    }
+
+    .services-full-feature__details {
+        grid-template-columns: 1fr;
+    }
+
+    .services-full-feature__actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .services-water-features__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-water-features__copy {
+        padding: 1.75rem;
+    }
+
+    .services-tile-story__rows article {
+        grid-template-columns: 2.25rem minmax(0, 1fr);
+    }
+
+    .services-tile-story__visual {
+        min-height: 33rem;
+        padding-right: 0;
+        padding-bottom: 3rem;
+    }
+
+    .services-tile-story__main {
+        right: 8%;
+        bottom: 3rem;
+    }
+
+    .services-tile-story__sample {
+        width: min(20rem, 64%);
+        padding: 1.15rem;
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 29rem;
+    }
+
+    .services-vanity-switcher__content {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+    }
+
+    .services-vanity-switcher__tabs {
+        display: flex;
+        overflow-x: auto;
+        border-top: 0;
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: none;
+    }
+
+    .services-vanity-switcher__tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-vanity-switcher__tab {
+        width: auto;
+        min-width: 13rem;
+        min-height: 4.25rem;
+        flex: 0 0 auto;
+        grid-template-columns: auto minmax(0, 1fr);
+        padding: 0.8rem 1.25rem 0.8rem 0;
+        border-top: 1px solid var(--color-border);
+        scroll-snap-align: start;
+    }
+
+    .services-vanity-switcher__tab::after {
+        top: auto;
+        right: 1rem;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        transform-origin: left;
+    }
+
+    .services-vanity-switcher__tab:hover,
+    .services-vanity-switcher__tab:focus-visible,
+    .services-vanity-switcher__tab.is-active,
+    .services-vanity-switcher__tab[aria-selected="true"] {
+        padding-left: 0;
+    }
+
+    .services-vanity-switcher__panel {
+        min-height: 16rem;
+    }
+
+    .services-accessible-feature {
+        min-height: 48rem;
+    }
+
+    .services-accessible-feature__media img {
+        object-position: 61% center;
+    }
+
+    .services-accessible-feature__factors {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-accessible-feature__factors>div {
+        min-height: 7.5rem;
+    }
+
+    .services-accessible-feature__factors>div:nth-child(3),
+    .services-accessible-feature__factors>div:nth-child(5) {
+        border-left: 0;
+    }
+
+    .services-accessible-feature__factors>div:nth-child(3) {
+        border-top: 1px solid var(--color-border-light);
+    }
+
+    .services-accessible-feature__factors>div:nth-child(4),
+    .services-accessible-feature__factors>div:nth-child(5),
+    .services-accessible-feature__factors>div:nth-child(6) {
+        border-top: 1px solid var(--color-border-light);
+    }
+
+    .services-accessible-feature__actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .services-priorities__header {
+        grid-template-columns: 1fr;
+    }
+
+    .services-priorities__controls {
+        justify-self: start;
+    }
+
+    .services-priorities__slide {
+        width: 84vw;
+        min-height: 25rem;
+    }
+
+    .services-provider-questions__accordion .accordion__trigger {
+        grid-template-columns:
+            2.25rem minmax(0, 1fr) auto;
+    }
+
+    .services-provider-questions__number {
+        font-size: 1.5rem;
+    }
+
+    .services-faq__trigger {
+        min-height: 6.75rem;
+        grid-template-columns:
+            2.5rem minmax(0, 1fr) 2.75rem;
+        gap: var(--space-4);
+    }
+
+    .services-faq__number {
+        font-size: 1.75rem;
+    }
+
+    .services-faq__icon {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    .services-faq__answer {
+        padding:
+            0 0 1.75rem 3.5rem;
+    }
+
+    .services-faq__footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   16. Narrow Mobile
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .services-index__item>a {
+        grid-template-columns: 6.25rem minmax(0, 1fr);
+        gap: 0 1rem;
+    }
+
+    .services-index__media {
+        min-height: 9.5rem;
+    }
+
+    .services-index__copy {
+        padding-right: 2.5rem;
+    }
+
+    .services-index__copy>svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .services-index__copy p {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+    }
+
+    .services-index__arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .services-full-feature__visual {
+        min-height: 23rem;
+    }
+
+    .services-full-feature__image-label {
+        padding: 0.8rem 1rem;
+    }
+
+    .services-water-features__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .services-water-features__copy h3 {
+        font-size: clamp(2rem, 10vw, 2.75rem);
+    }
+
+    .services-tile-story__visual {
+        min-height: 28rem;
+    }
+
+    .services-tile-story__main {
+        right: 5%;
+    }
+
+    .services-tile-story__sample {
+        width: min(18rem, 72%);
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 24rem;
+    }
+
+    .services-vanity-switcher__tab {
+        min-width: 12rem;
+        font-size: 1.3rem;
+    }
+
+    .services-accessible-feature {
+        min-height: 51rem;
+    }
+
+    .services-accessible-feature__copy {
+        padding-block: 4rem;
+    }
+
+    .services-accessible-feature__factors span {
+        font-size: 0.62rem;
+    }
+
+    .services-priorities__slide {
+        width: 88vw;
+        min-height: 24rem;
+    }
+
+    .services-provider-questions__accordion .accordion__trigger {
+        grid-template-columns:
+            1.75rem minmax(0, 1fr) 2.625rem;
+        gap: 0.75rem;
+    }
+
+    .services-provider-questions__number {
+        font-size: 1.25rem;
+    }
+
+    .services-faq__trigger {
+        grid-template-columns:
+            1.8rem minmax(0, 1fr) 2.625rem;
+        gap: 0.75rem;
+    }
+
+    .services-faq__number {
+        font-size: 1.4rem;
+    }
+
+    .services-faq__answer {
+        padding-left: 2.55rem;
+    }
+}
+
+/* =========================================================
+   17. Compact Mobile
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .services-index__item>a {
+        grid-template-columns: 5.5rem minmax(0, 1fr);
+        padding: 1rem;
+    }
+
+    .services-index__media {
+        min-height: 8.5rem;
+    }
+
+    .services-index__copy {
+        gap: 0.65rem;
+        padding-right: 2.25rem;
+    }
+
+    .services-index__copy>svg {
+        display: none;
+    }
+
+    .services-index__copy h3 {
+        font-size: 1.45rem;
+    }
+
+    .services-index__arrow {
+        right: 1rem;
+        bottom: 1rem;
+        width: 2.35rem;
+        height: 2.35rem;
+    }
+
+    .services-full-feature__visual {
+        min-height: 21rem;
+    }
+
+    .services-tile-story__visual {
+        min-height: 25rem;
+    }
+
+    .services-tile-story__sample {
+        width: 78%;
+    }
+
+    .services-vanity-switcher__visual {
+        min-height: 21rem;
+    }
+
+    .services-accessible-feature {
+        min-height: 53rem;
+    }
+
+    .services-accessible-feature__factors>div {
+        min-height: 7rem;
+    }
+
+    .services-priorities__slide {
+        width: 90vw;
+    }
+
+    .services-faq__trigger {
+        grid-template-columns:
+            minmax(0, 1fr) 2.625rem;
+    }
+
+    .services-faq__number {
+        display: none;
+    }
+
+    .services-faq__answer {
+        padding-left: 0;
+    }
+}
+
+/* =========================================================
+   18. Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .services-index__media img,
+    .services-index__copy>svg,
+    .services-index__arrow,
+    .services-full-feature__visual>img,
+    .services-water-features__media img,
+    .services-accessible-feature__media img,
+    .services-priorities__slide,
+    .services-priorities__slide>svg,
+    .services-priorities__slide>a svg {
+        transition: none;
+    }
+
+    .services-vanity-switcher__tab::after,
+    .services-faq__icon::after {
+        transition: none;
+    }
+
+    .services-index__item:hover .services-index__media img,
+    .services-index__item:focus-within .services-index__media img,
+    .services-full-feature:hover .services-full-feature__visual>img,
+    .services-water-features__panel:hover .services-water-features__media img,
+    .services-water-features__panel:focus-within .services-water-features__media img,
+    .services-accessible-feature:hover .services-accessible-feature__media img,
+    .services-priorities__slide:hover,
+    .services-priorities__slide:focus-within {
+        transform: none;
+    }
+}

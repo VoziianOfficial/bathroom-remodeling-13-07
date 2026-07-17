@@ -1,0 +1,2035 @@
+/* =========================================================
+   BathNice — Homepage
+   Homepage hero and exactly 12 homepage sections.
+   ========================================================= */
+
+/* =========================================================
+   1. Homepage Hero
+   ========================================================= */
+
+.home-hero {
+    position: relative;
+    min-height: clamp(40.625rem, 53vw, 48.75rem);
+    overflow: hidden;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.home-hero__media,
+.home-hero__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.home-hero__media {
+    overflow: hidden;
+}
+
+.home-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+    transform: scale(1.03);
+    animation: homeHeroSettle 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-hero__overlay {
+    background: rgba(17, 18, 15, 0.56);
+}
+
+.home-hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    min-height: inherit;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto;
+    align-items: end;
+    gap: var(--space-7);
+    padding-top: clamp(5rem, 9vw, 8rem);
+    padding-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.home-hero__content {
+    display: grid;
+    max-width: 57rem;
+    gap: var(--space-5);
+    align-self: end;
+}
+
+.home-hero__content h1 {
+    max-width: 10.5ch;
+}
+
+.home-hero__description {
+    max-width: 48rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(1rem, 1.35vw, 1.1875rem);
+    line-height: 1.7;
+}
+
+.home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+}
+
+.home-hero__detail {
+    display: grid;
+    align-self: end;
+    justify-items: end;
+    gap: 0.5rem;
+    padding-bottom: 0.35rem;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.home-hero__detail span {
+    position: relative;
+    padding-right: 2.5rem;
+}
+
+.home-hero__detail span::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-gold);
+    content: "";
+}
+
+.home-hero__scroll {
+    display: inline-flex;
+    min-height: 2.75rem;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-self: start;
+    gap: 0.7rem;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    transition: color var(--transition-fast);
+}
+
+.home-hero__scroll svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-gold-light);
+    transition: transform var(--transition-base);
+}
+
+.home-hero__scroll:hover,
+.home-hero__scroll:focus-visible {
+    color: var(--color-white);
+}
+
+.home-hero__scroll:hover svg,
+.home-hero__scroll:focus-visible svg {
+    transform: translateY(0.25rem);
+}
+
+@keyframes homeHeroSettle {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   2. Section 01 — Service Icon Rail
+   ========================================================= */
+
+.home-service-rail {
+    position: relative;
+    z-index: 4;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-white);
+}
+
+.home-service-rail__viewport {
+    overflow: hidden;
+}
+
+.home-service-rail__list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.home-service-rail__item {
+    min-width: 0;
+}
+
+.home-service-rail__item+.home-service-rail__item {
+    border-left: 1px solid var(--color-border);
+}
+
+.home-service-rail__link {
+    position: relative;
+    display: grid;
+    min-height: 10.25rem;
+    place-items: center;
+    align-content: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.home-service-rail__link::after {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    left: 1rem;
+    height: 2px;
+    background: var(--color-emerald);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-base);
+}
+
+.home-service-rail__link svg {
+    width: 2.3rem;
+    height: 2.3rem;
+    color: var(--color-ink);
+    stroke-width: 1.45;
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.home-service-rail__link span {
+    max-width: 11rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    line-height: 1.08;
+    transition: color var(--transition-fast);
+}
+
+.home-service-rail__link:hover::after,
+.home-service-rail__link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.home-service-rail__link:hover svg,
+.home-service-rail__link:focus-visible svg {
+    color: var(--color-gold);
+    transform: translateY(-0.25rem);
+}
+
+.home-service-rail__link:hover span,
+.home-service-rail__link:focus-visible span {
+    color: var(--color-emerald);
+}
+
+/* =========================================================
+   3. Section 02 — Editorial Platform Intro
+   ========================================================= */
+
+.home-platform-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(23rem, 0.92fr);
+    align-items: center;
+    gap: clamp(4rem, 8vw, 8.5rem);
+}
+
+.home-platform-intro__visual {
+    position: relative;
+    min-height: 44rem;
+}
+
+.home-platform-intro__main {
+    position: absolute;
+    inset: 0 18% 6% 0;
+}
+
+.home-platform-intro__main img,
+.home-platform-intro__material img,
+.home-platform-intro__fixture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-platform-intro__material {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    width: 37%;
+    aspect-ratio: 1;
+    border: 0.75rem solid var(--color-paper);
+}
+
+.home-platform-intro__fixture {
+    position: absolute;
+    z-index: 3;
+    top: 7%;
+    right: 2%;
+    width: 23%;
+    aspect-ratio: 3 / 4;
+    border: 0.65rem solid var(--color-paper);
+}
+
+.home-platform-intro__copy {
+    position: relative;
+    display: grid;
+    align-content: center;
+    gap: var(--space-6);
+}
+
+.home-platform-intro__copy>*:not(.home-platform-intro__drawing) {
+    position: relative;
+    z-index: 2;
+}
+
+.home-platform-intro__copy h2 {
+    max-width: 11.5ch;
+}
+
+.home-platform-intro__drawing {
+    position: absolute;
+    z-index: 0;
+    top: -3rem;
+    right: -3rem;
+    width: min(36rem, 105%);
+    color: var(--color-ink);
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.home-platform-intro__drawing svg {
+    width: 100%;
+    height: auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+}
+
+.home-platform-intro__points {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.home-platform-intro__point {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.home-platform-intro__point>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.home-platform-intro__point p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   4. Section 03 — Asymmetric Service Mosaic
+   ========================================================= */
+
+.home-service-mosaic {
+    overflow: hidden;
+}
+
+.home-service-mosaic__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.home-service-mosaic__heading .lead {
+    justify-self: end;
+    max-width: 31rem;
+}
+
+.home-service-mosaic__viewport {
+    overflow: visible;
+}
+
+.home-service-mosaic__grid {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: 20rem 20rem;
+    gap: 1rem;
+}
+
+.home-service-mosaic__tile {
+    position: relative;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    overflow: hidden;
+    background: var(--color-charcoal);
+}
+
+.home-service-mosaic__tile--full {
+    grid-column: 5 / 9;
+    grid-row: 1 / 3;
+}
+
+.home-service-mosaic__tile--shower {
+    grid-column: 1 / 5;
+    grid-row: 1;
+}
+
+.home-service-mosaic__tile--bathtub {
+    grid-column: 9 / 13;
+    grid-row: 1;
+}
+
+.home-service-mosaic__tile--tile {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.home-service-mosaic__tile--vanity {
+    grid-column: 3 / 5;
+    grid-row: 2;
+}
+
+.home-service-mosaic__tile--accessible {
+    grid-column: 9 / 13;
+    grid-row: 2;
+}
+
+.home-service-mosaic__tile>a {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.home-service-mosaic__media,
+.home-service-mosaic__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.home-service-mosaic__media {
+    overflow: hidden;
+}
+
+.home-service-mosaic__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-service-mosaic__overlay {
+    background: rgba(17, 18, 15, 0.46);
+    transition: background-color var(--transition-base);
+}
+
+.home-service-mosaic__content {
+    position: absolute;
+    z-index: 2;
+    right: clamp(1.15rem, 2vw, 2rem);
+    bottom: clamp(1.15rem, 2vw, 2rem);
+    left: clamp(1.15rem, 2vw, 2rem);
+    display: grid;
+    gap: 0.45rem;
+    color: var(--color-white);
+}
+
+.home-service-mosaic__content>span {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.home-service-mosaic__content h3 {
+    position: relative;
+    width: fit-content;
+    max-width: 13rem;
+    padding-bottom: 0.5rem;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.home-service-mosaic__content h3::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: var(--color-gold-light);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.home-service-mosaic__tile:hover img,
+.home-service-mosaic__tile:focus-within img {
+    transform: scale(1.04);
+}
+
+.home-service-mosaic__tile:hover .home-service-mosaic__overlay,
+.home-service-mosaic__tile:focus-within .home-service-mosaic__overlay {
+    background: rgba(17, 18, 15, 0.58);
+}
+
+.home-service-mosaic__tile:hover h3::after,
+.home-service-mosaic__tile:focus-within h3::after {
+    transform: scaleX(1);
+}
+
+/* =========================================================
+   5. Section 04 — Project-Path Sticky Story
+   ========================================================= */
+
+.home-path {
+    overflow: visible;
+}
+
+.home-path__layout {
+    display: grid;
+    grid-template-columns: minmax(21rem, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.home-path__intro {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.home-path__intro h2 {
+    max-width: 11ch;
+}
+
+.home-path__intro .button {
+    width: fit-content;
+}
+
+.home-path__intro .platform-notice {
+    max-width: 34rem;
+    padding: 1rem 0;
+    border-bottom: 0;
+}
+
+.home-path__steps {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.home-path__step {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    padding-block: clamp(2.75rem, 5vw, 4.75rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.home-path__step-number {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1;
+}
+
+.home-path__step-copy {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.home-path__step-copy p {
+    color: var(--color-text-muted);
+}
+
+.home-path__step-media {
+    grid-column: 2;
+    aspect-ratio: 16 / 9;
+    margin-top: var(--space-6);
+}
+
+.home-path__step-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-path__step-detail {
+    display: grid;
+    grid-column: 2;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.home-path__step-detail svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+}
+
+/* =========================================================
+   6. Section 05 — Style Explorer
+   ========================================================= */
+
+.home-style-explorer__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.home-style-explorer__heading .lead {
+    justify-self: end;
+    max-width: 31rem;
+}
+
+.home-style-explorer__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(22rem, 0.72fr);
+    align-items: stretch;
+    gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.home-style-explorer__visual {
+    position: relative;
+    min-height: 43rem;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.home-style-explorer__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-style-explorer__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1rem 1.4rem;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.home-style-explorer__content {
+    display: grid;
+    align-content: center;
+    gap: var(--space-8);
+}
+
+.home-style-explorer__tabs {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.home-style-explorer__tab {
+    position: relative;
+    display: grid;
+    width: 100%;
+    min-height: 4.65rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-4);
+    padding: 1rem 2.5rem 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    text-align: left;
+    transition:
+        color var(--transition-fast),
+        padding-left var(--transition-base);
+}
+
+.home-style-explorer__tab::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--color-emerald);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-base);
+}
+
+.home-style-explorer__tab>span {
+    color: var(--color-gold);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.home-style-explorer__tab:hover,
+.home-style-explorer__tab:focus-visible,
+.home-style-explorer__tab.is-active,
+.home-style-explorer__tab[aria-selected="true"] {
+    padding-left: 0.6rem;
+    color: var(--color-ink);
+}
+
+.home-style-explorer__tab.is-active::after,
+.home-style-explorer__tab[aria-selected="true"]::after {
+    transform: scaleX(1);
+}
+
+.home-style-explorer__panel {
+    display: grid;
+    min-height: 10rem;
+    align-content: start;
+    gap: var(--space-3);
+}
+
+.home-style-explorer__panel h3 {
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+}
+
+.home-style-explorer__panel p {
+    color: var(--color-text-muted);
+}
+
+.home-style-explorer__panel>span {
+    color: var(--color-emerald);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   7. Section 06 — Two-Panel Project Types
+   ========================================================= */
+
+.home-project-types__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.home-project-types__panel {
+    position: relative;
+    min-height: clamp(31rem, 41vw, 42rem);
+    overflow: hidden;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.home-project-types__panel>img,
+.home-project-types__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.home-project-types__panel>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-project-types__overlay {
+    background: rgba(17, 18, 15, 0.55);
+    transition: background-color var(--transition-base);
+}
+
+.home-project-types__content {
+    position: absolute;
+    z-index: 2;
+    right: clamp(1.5rem, 4vw, 3.5rem);
+    bottom: clamp(1.5rem, 4vw, 3.5rem);
+    left: clamp(1.5rem, 4vw, 3.5rem);
+    display: grid;
+    max-width: 31rem;
+    gap: var(--space-4);
+}
+
+.home-project-types__content>span {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.home-project-types__content h3 {
+    max-width: 10ch;
+    font-size: clamp(2.35rem, 4vw, 4.25rem);
+    line-height: 0.95;
+}
+
+.home-project-types__content p {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.home-project-types__content .button {
+    width: fit-content;
+    margin-top: var(--space-2);
+}
+
+.home-project-types__panel:hover .home-project-types__overlay,
+.home-project-types__panel:focus-within .home-project-types__overlay {
+    background: rgba(17, 18, 15, 0.65);
+}
+
+/* =========================================================
+   8. Section 07 — Materials Decision Slider
+   ========================================================= */
+
+.home-materials {
+    overflow: hidden;
+}
+
+.home-materials__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--space-7);
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.home-materials__header .section-heading {
+    max-width: 53rem;
+}
+
+.home-materials__slider {
+    overflow: visible;
+}
+
+.home-materials__slide {
+    display: grid;
+    width: min(35rem, 42vw);
+    background: var(--color-paper);
+}
+
+.home-materials__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.home-materials__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-materials__content {
+    position: relative;
+    display: grid;
+    min-height: 13.5rem;
+    align-content: start;
+    gap: var(--space-3);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border: 1px solid var(--color-border);
+    border-top: 0;
+}
+
+.home-materials__content>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.home-materials__content p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.home-materials__slide:hover .home-materials__media img,
+.home-materials__slide:focus-within .home-materials__media img {
+    transform: scale(1.04);
+}
+
+.home-materials__progress {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-8);
+}
+
+/* =========================================================
+   9. Section 08 — Bathroom Hotspots
+   ========================================================= */
+
+.home-hotspots {
+    overflow: hidden;
+}
+
+.home-hotspots__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.home-hotspots__heading .lead {
+    justify-self: end;
+    max-width: 31rem;
+}
+
+.home-hotspots__scene {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--color-stone-100);
+}
+
+.home-hotspots__scene>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-hotspots__button {
+    position: absolute;
+    z-index: 3;
+    top: var(--hotspot-y);
+    left: var(--hotspot-x);
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    background: var(--color-emerald);
+    box-shadow: 0 0 0 0.5rem rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition:
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-base);
+}
+
+.home-hotspots__button::before,
+.home-hotspots__button::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    height: 1px;
+    background: var(--color-white);
+    content: "";
+    transform: translate(-50%, -50%);
+    transition: transform var(--transition-base);
+}
+
+.home-hotspots__button::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.home-hotspots__button:hover,
+.home-hotspots__button:focus-visible,
+.home-hotspots__button[aria-expanded="true"] {
+    background: var(--color-gold);
+    box-shadow: 0 0 0 0.7rem rgba(255, 255, 255, 0.28);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.home-hotspots__button[aria-expanded="true"]::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.home-hotspots__panel {
+    position: absolute;
+    z-index: 4;
+    right: clamp(1rem, 3vw, 2.5rem);
+    bottom: clamp(1rem, 3vw, 2.5rem);
+    display: grid;
+    width: min(24rem, calc(100% - 2rem));
+    gap: var(--space-3);
+    padding: 1.5rem 3.25rem 1.5rem 1.5rem;
+    border: 1px solid var(--color-border-light);
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.home-hotspots__panel>span {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.home-hotspots__panel h3 {
+    font-size: clamp(1.5rem, 2.3vw, 2rem);
+}
+
+.home-hotspots__panel p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.home-hotspots__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-border-light);
+    border-radius: 50%;
+    color: var(--color-white);
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.home-hotspots__close:hover,
+.home-hotspots__close:focus-visible {
+    border-color: var(--color-gold);
+    background: var(--color-gold);
+    color: var(--color-ink);
+}
+
+.home-hotspots__close svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.home-hotspots__mobile {
+    display: none;
+}
+
+.home-hotspots__mobile-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+}
+
+.home-hotspots__mobile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================================
+   10. Section 09 — Provider Checklist
+   ========================================================= */
+
+.home-provider-checklist {
+    overflow: visible;
+}
+
+.home-provider-checklist__layout {
+    display: grid;
+    grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.home-provider-checklist__intro {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.home-provider-checklist__intro h2 {
+    max-width: 11ch;
+}
+
+.home-provider-checklist__intro p {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.home-provider-checklist__accordion .accordion__trigger {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+}
+
+.home-provider-checklist__number {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.home-provider-checklist__notice {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    border-color: var(--color-border-light);
+}
+
+/* =========================================================
+   11. Section 10 — Planning Split
+   ========================================================= */
+
+.home-planning__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(25rem, 1.1fr);
+    align-items: center;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.home-planning__copy {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.home-planning__copy h2 {
+    max-width: 11ch;
+}
+
+.home-planning__list {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.home-planning__list li {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 0.58fr);
+    gap: var(--space-5);
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.home-planning__list li>span {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.home-planning__list p {
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    line-height: 1.65;
+}
+
+.home-planning__visual {
+    position: relative;
+    min-height: 45rem;
+    padding-bottom: 2.75rem;
+}
+
+.home-planning__media {
+    position: absolute;
+    inset: 0 0 2.75rem 10%;
+}
+
+.home-planning__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-planning__band {
+    position: absolute;
+    right: 7%;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    min-height: 5.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    border: 1px solid var(--color-border);
+    background: var(--color-paper);
+}
+
+.home-planning__band span {
+    display: grid;
+    min-height: 3rem;
+    place-items: center;
+    color: var(--color-emerald);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.home-planning__band span+span {
+    border-left: 1px solid var(--color-border);
+}
+
+/* =========================================================
+   12. Section 11 — FAQ Editorial
+   ========================================================= */
+
+.home-faq {
+    overflow: visible;
+}
+
+.home-faq__layout {
+    display: grid;
+    grid-template-columns: minmax(20rem, 0.78fr) minmax(0, 1.22fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.home-faq__aside {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.home-faq__aside h2 {
+    max-width: 10.5ch;
+}
+
+.home-faq__aside p {
+    color: var(--color-text-muted);
+}
+
+.home-faq__accordion .accordion__trigger {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+}
+
+.home-faq__number {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+    opacity: 0.48;
+}
+
+/* =========================================================
+   13. Section 12 — Final Photo Story
+   ========================================================= */
+
+.home-photo-story {
+    overflow: hidden;
+    background: var(--color-charcoal);
+}
+
+.home-photo-story__header {
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+    background: var(--color-white);
+}
+
+.home-photo-story__header .container-wide {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.home-photo-story__header h2 {
+    max-width: 14ch;
+}
+
+.home-photo-story__viewport {
+    overflow: visible;
+}
+
+.home-photo-story__panels {
+    display: flex;
+    height: clamp(35rem, 52vw, 48rem);
+}
+
+.home-photo-story__panel {
+    position: relative;
+    width: 33.333%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-charcoal);
+    transition: width 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-photo-story__panel>img,
+.home-photo-story__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.home-photo-story__panel>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-photo-story__overlay {
+    background: rgba(17, 18, 15, 0.52);
+    transition: background-color var(--transition-base);
+}
+
+.home-photo-story__content {
+    position: absolute;
+    z-index: 2;
+    right: clamp(1.5rem, 3vw, 3rem);
+    bottom: clamp(1.5rem, 4vw, 3.75rem);
+    left: clamp(1.5rem, 3vw, 3rem);
+    display: grid;
+    max-width: 30rem;
+    gap: var(--space-4);
+    color: var(--color-white);
+}
+
+.home-photo-story__content>span {
+    color: var(--color-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.home-photo-story__content h3 {
+    max-width: 8ch;
+    font-size: clamp(2.3rem, 4vw, 4.25rem);
+    line-height: 0.95;
+}
+
+.home-photo-story__content p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.home-photo-story__content .button {
+    width: fit-content;
+    margin-top: var(--space-2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-photo-story__panels:hover .home-photo-story__panel {
+        width: 30%;
+    }
+
+    .home-photo-story__panels .home-photo-story__panel:hover {
+        width: 40%;
+    }
+
+    .home-photo-story__panel:hover>img {
+        transform: scale(1.04);
+    }
+
+    .home-photo-story__panel:hover .home-photo-story__overlay {
+        background: rgba(17, 18, 15, 0.62);
+    }
+}
+
+/* =========================================================
+   14. Wide Desktop Adjustments
+   ========================================================= */
+
+@media (max-width: 1280px) {
+
+    .home-platform-intro__grid,
+    .home-style-explorer__layout,
+    .home-planning__layout {
+        gap: clamp(3.5rem, 6vw, 6rem);
+    }
+
+    .home-platform-intro__visual {
+        min-height: 39rem;
+    }
+
+    .home-service-mosaic__grid {
+        grid-template-rows: 18rem 18rem;
+    }
+
+    .home-style-explorer__visual {
+        min-height: 38rem;
+    }
+
+    .home-planning__visual {
+        min-height: 40rem;
+    }
+
+    .home-project-types__panel {
+        min-height: 33rem;
+    }
+}
+
+/* =========================================================
+   15. Desktop Navigation Breakpoint
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .home-hero {
+        min-height: clamp(38rem, 66vw, 44rem);
+    }
+
+    .home-hero__inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-hero__detail {
+        display: none;
+    }
+
+    .home-service-rail__link {
+        min-height: 9rem;
+        padding-inline: 0.65rem;
+    }
+
+    .home-service-rail__link span {
+        font-size: 1.1rem;
+    }
+
+    .home-platform-intro__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.85fr);
+    }
+
+    .home-platform-intro__visual {
+        min-height: 35rem;
+    }
+
+    .home-service-mosaic__grid {
+        grid-template-rows: 16rem 16rem;
+    }
+
+    .home-path__layout,
+    .home-provider-checklist__layout,
+    .home-faq__layout {
+        grid-template-columns: minmax(18rem, 0.75fr) minmax(0, 1.25fr);
+        gap: 4rem;
+    }
+
+    .home-style-explorer__layout {
+        grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.7fr);
+    }
+
+    .home-style-explorer__visual {
+        min-height: 34rem;
+    }
+
+    .home-planning__layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(22rem, 1.15fr);
+    }
+
+    .home-photo-story__panels {
+        height: 39rem;
+    }
+}
+
+/* =========================================================
+   16. Tablet
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .home-hero__content {
+        max-width: 48rem;
+    }
+
+    .home-service-rail__viewport {
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+    }
+
+    .home-service-rail__viewport::-webkit-scrollbar {
+        display: none;
+    }
+
+    .home-service-rail__list {
+        width: max-content;
+        grid-template-columns: repeat(6, 10.5rem);
+        scroll-snap-type: inline mandatory;
+    }
+
+    .home-service-rail__item {
+        scroll-snap-align: start;
+    }
+
+    .home-platform-intro__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-platform-intro__visual {
+        width: min(44rem, 100%);
+        min-height: 42rem;
+    }
+
+    .home-platform-intro__copy {
+        max-width: 48rem;
+    }
+
+    .home-service-mosaic__heading,
+    .home-style-explorer__heading,
+    .home-hotspots__heading {
+        grid-template-columns: 1fr;
+    }
+
+    .home-service-mosaic__heading .lead,
+    .home-style-explorer__heading .lead,
+    .home-hotspots__heading .lead {
+        justify-self: start;
+    }
+
+    .home-service-mosaic__grid {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-rows: repeat(3, 17rem);
+    }
+
+    .home-service-mosaic__tile--full {
+        grid-column: 1 / 5;
+        grid-row: 1 / 3;
+    }
+
+    .home-service-mosaic__tile--shower {
+        grid-column: 5 / 9;
+        grid-row: 1;
+    }
+
+    .home-service-mosaic__tile--bathtub {
+        grid-column: 5 / 9;
+        grid-row: 2;
+    }
+
+    .home-service-mosaic__tile--tile {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    .home-service-mosaic__tile--vanity {
+        grid-column: 3 / 6;
+        grid-row: 3;
+    }
+
+    .home-service-mosaic__tile--accessible {
+        grid-column: 6 / 9;
+        grid-row: 3;
+    }
+
+    .home-path__layout,
+    .home-provider-checklist__layout,
+    .home-faq__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home-path__intro,
+    .home-provider-checklist__intro,
+    .home-faq__aside {
+        max-width: 48rem;
+    }
+
+    .home-style-explorer__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home-style-explorer__visual {
+        min-height: 36rem;
+    }
+
+    .home-style-explorer__content {
+        grid-template-columns: minmax(17rem, 0.55fr) minmax(0, 0.45fr);
+        align-items: start;
+        gap: 3rem;
+    }
+
+    .home-project-types__panel {
+        min-height: 31rem;
+    }
+
+    .home-materials__slide {
+        width: min(31rem, 58vw);
+    }
+
+    .home-planning__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home-planning__copy {
+        max-width: 48rem;
+    }
+
+    .home-planning__visual {
+        width: min(48rem, 100%);
+        min-height: 43rem;
+        margin-left: auto;
+    }
+
+    .home-photo-story__panels {
+        height: 36rem;
+    }
+
+    .home-photo-story__content h3 {
+        font-size: clamp(2rem, 4.3vw, 3.15rem);
+    }
+}
+
+/* =========================================================
+   17. Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .home-hero {
+        min-height: clamp(38rem, 168vw, 43rem);
+    }
+
+    .home-hero__media img {
+        object-position: 61% center;
+    }
+
+    .home-hero__overlay {
+        background: rgba(17, 18, 15, 0.62);
+    }
+
+    .home-hero__inner {
+        grid-template-rows: 1fr auto;
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .home-hero__content {
+        gap: var(--space-4);
+    }
+
+    .home-hero__content h1 {
+        max-width: 10ch;
+    }
+
+    .home-hero__description {
+        max-width: 36rem;
+        font-size: 1rem;
+    }
+
+    .home-hero__actions {
+        display: grid;
+        width: min(100%, 27rem);
+    }
+
+    .home-hero__actions .button {
+        width: 100%;
+    }
+
+    .home-service-rail__list {
+        grid-template-columns: repeat(6, 9.5rem);
+    }
+
+    .home-service-rail__link {
+        min-height: 8.5rem;
+    }
+
+    .home-service-rail__link svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .home-platform-intro__visual {
+        min-height: 32rem;
+    }
+
+    .home-platform-intro__main {
+        right: 15%;
+        bottom: 8%;
+    }
+
+    .home-platform-intro__material {
+        width: 36%;
+        border-width: 0.5rem;
+    }
+
+    .home-platform-intro__fixture {
+        width: 25%;
+        border-width: 0.45rem;
+    }
+
+    .home-platform-intro__drawing {
+        right: -1rem;
+        width: 100%;
+    }
+
+    .home-platform-intro__point {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+    }
+
+    .home-service-mosaic__viewport {
+        overflow: hidden;
+    }
+
+    .home-service-mosaic__grid {
+        display: flex;
+        gap: 0;
+    }
+
+    .home-service-mosaic__tile,
+    .home-service-mosaic__tile--full,
+    .home-service-mosaic__tile--shower,
+    .home-service-mosaic__tile--bathtub,
+    .home-service-mosaic__tile--tile,
+    .home-service-mosaic__tile--vanity,
+    .home-service-mosaic__tile--accessible {
+        width: 86%;
+        height: 30rem;
+    }
+
+    .home-service-mosaic__content h3 {
+        max-width: 12rem;
+    }
+
+    .home-path__step {
+        grid-template-columns: 3.5rem minmax(0, 1fr);
+        padding-block: 2.5rem;
+    }
+
+    .home-path__step-media,
+    .home-path__step-detail {
+        grid-column: 1 / -1;
+    }
+
+    .home-style-explorer__visual {
+        min-height: 28rem;
+    }
+
+    .home-style-explorer__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+    }
+
+    .home-style-explorer__tabs {
+        display: flex;
+        overflow-x: auto;
+        border-top: 0;
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: none;
+    }
+
+    .home-style-explorer__tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .home-style-explorer__tab {
+        width: auto;
+        min-width: 12.5rem;
+        min-height: 4.25rem;
+        flex: 0 0 auto;
+        grid-template-columns: auto minmax(0, 1fr);
+        padding: 0.8rem 1.25rem 0.8rem 0;
+        border-top: 1px solid var(--color-border);
+        scroll-snap-align: start;
+    }
+
+    .home-style-explorer__tab::after {
+        top: auto;
+        right: 1rem;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        transform-origin: left;
+    }
+
+    .home-style-explorer__tab:hover,
+    .home-style-explorer__tab:focus-visible,
+    .home-style-explorer__tab.is-active,
+    .home-style-explorer__tab[aria-selected="true"] {
+        padding-left: 0;
+    }
+
+    .home-style-explorer__panel {
+        min-height: 9rem;
+    }
+
+    .home-project-types__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-project-types__panel {
+        min-height: 28rem;
+    }
+
+    .home-project-types__content h3 {
+        font-size: clamp(2.3rem, 10vw, 3.2rem);
+    }
+
+    .home-materials__header {
+        grid-template-columns: 1fr;
+    }
+
+    .home-materials__navigation {
+        justify-self: start;
+    }
+
+    .home-materials__slide {
+        width: 84vw;
+    }
+
+    .home-materials__content {
+        min-height: 12.5rem;
+    }
+
+    .home-hotspots__desktop {
+        display: none;
+    }
+
+    .home-hotspots__mobile {
+        display: block;
+    }
+
+    .home-provider-checklist__accordion .accordion__trigger,
+    .home-faq__accordion .accordion__trigger {
+        grid-template-columns: 2.3rem minmax(0, 1fr) auto;
+    }
+
+    .home-planning__list li {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+    }
+
+    .home-planning__visual {
+        min-height: 33rem;
+        padding-bottom: 2rem;
+    }
+
+    .home-planning__media {
+        right: 0;
+        bottom: 2rem;
+        left: 0;
+    }
+
+    .home-planning__band {
+        right: 1rem;
+        left: 1rem;
+        min-height: 4.75rem;
+    }
+
+    .home-photo-story__header h2 {
+        max-width: 12ch;
+    }
+
+    .home-photo-story__panels {
+        display: flex;
+        height: 34rem;
+    }
+
+    .home-photo-story__panel {
+        width: 88%;
+        flex: 0 0 auto;
+    }
+
+    .home-photo-story__content {
+        max-width: 23rem;
+    }
+
+    .home-photo-story__content h3 {
+        font-size: clamp(2.4rem, 10vw, 3.4rem);
+    }
+}
+
+/* =========================================================
+   18. Narrow Mobile
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .home-hero__content h1 {
+        max-width: 9.5ch;
+    }
+
+    .home-service-rail__list {
+        grid-template-columns: repeat(6, 8.75rem);
+    }
+
+    .home-service-rail__link {
+        min-height: 8rem;
+    }
+
+    .home-service-rail__link span {
+        max-width: 8rem;
+        font-size: 1rem;
+    }
+
+    .home-platform-intro__visual {
+        min-height: 27rem;
+    }
+
+    .home-platform-intro__material {
+        width: 38%;
+    }
+
+    .home-platform-intro__fixture {
+        top: 4%;
+        width: 27%;
+    }
+
+    .home-service-mosaic__tile,
+    .home-service-mosaic__tile--full,
+    .home-service-mosaic__tile--shower,
+    .home-service-mosaic__tile--bathtub,
+    .home-service-mosaic__tile--tile,
+    .home-service-mosaic__tile--vanity,
+    .home-service-mosaic__tile--accessible {
+        width: 88%;
+        height: 27rem;
+    }
+
+    .home-path__step {
+        grid-template-columns: 2.75rem minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .home-path__step-number {
+        font-size: 2rem;
+    }
+
+    .home-style-explorer__visual {
+        min-height: 23rem;
+    }
+
+    .home-style-explorer__caption {
+        padding: 0.8rem 1rem;
+    }
+
+    .home-project-types__panel {
+        min-height: 25rem;
+    }
+
+    .home-project-types__content {
+        right: 1.25rem;
+        bottom: 1.5rem;
+        left: 1.25rem;
+    }
+
+    .home-materials__slide {
+        width: 88vw;
+    }
+
+    .home-materials__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .home-provider-checklist__accordion .accordion__trigger,
+    .home-faq__accordion .accordion__trigger {
+        grid-template-columns: 1.8rem minmax(0, 1fr) 2.625rem;
+        gap: 0.75rem;
+    }
+
+    .home-provider-checklist__number {
+        align-self: start;
+        padding-top: 0.25rem;
+    }
+
+    .home-faq__number {
+        font-size: 1.45rem;
+    }
+
+    .home-planning__visual {
+        min-height: 28rem;
+    }
+
+    .home-planning__band {
+        min-height: 4.25rem;
+    }
+
+    .home-planning__band span {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    .home-photo-story__panels {
+        height: 31rem;
+    }
+
+    .home-photo-story__panel {
+        width: 91%;
+    }
+}
+
+/* =========================================================
+   19. Compact Mobile
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .home-hero {
+        min-height: 39rem;
+    }
+
+    .home-hero__media img {
+        object-position: 64% center;
+    }
+
+    .home-hero__actions {
+        width: 100%;
+    }
+
+    .home-platform-intro__visual {
+        min-height: 23rem;
+    }
+
+    .home-platform-intro__main {
+        right: 12%;
+    }
+
+    .home-platform-intro__material {
+        width: 40%;
+    }
+
+    .home-platform-intro__fixture {
+        width: 28%;
+    }
+
+    .home-service-mosaic__tile,
+    .home-service-mosaic__tile--full,
+    .home-service-mosaic__tile--shower,
+    .home-service-mosaic__tile--bathtub,
+    .home-service-mosaic__tile--tile,
+    .home-service-mosaic__tile--vanity,
+    .home-service-mosaic__tile--accessible {
+        height: 25rem;
+    }
+
+    .home-style-explorer__visual {
+        min-height: 21rem;
+    }
+
+    .home-style-explorer__tab {
+        min-width: 11.75rem;
+        font-size: 1.22rem;
+    }
+
+    .home-project-types__panel {
+        min-height: 24rem;
+    }
+
+    .home-materials__slide {
+        width: 90vw;
+    }
+
+    .home-planning__visual {
+        min-height: 25rem;
+    }
+
+    .home-photo-story__panels {
+        height: 29rem;
+    }
+
+    .home-photo-story__panel {
+        width: 93%;
+    }
+}
+
+/* =========================================================
+   20. Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .home-hero__media img {
+        animation: none;
+        transform: none;
+    }
+
+    .home-service-mosaic__media img,
+    .home-materials__media img,
+    .home-photo-story__panel>img {
+        transition: none;
+    }
+
+    .home-photo-story__panel {
+        transition: none;
+    }
+
+    .home-hotspots__button {
+        transition: none;
+    }
+}

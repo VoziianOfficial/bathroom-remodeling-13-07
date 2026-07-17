@@ -1,0 +1,1635 @@
+/* =========================================================
+   BathNice — About Page
+   Inner hero and exactly 10 About-page sections.
+   ========================================================= */
+
+/* =========================================================
+   1. About Inner Hero
+   ========================================================= */
+
+.about-hero .inner-hero__media img {
+    object-position: center 54%;
+}
+
+.about-hero .inner-hero__overlay {
+    background: rgba(17, 18, 15, 0.63);
+}
+
+.about-hero .inner-hero__content {
+    max-width: calc(var(--container-wide) + (var(--page-gutter) * 2));
+}
+
+.about-hero h1 {
+    max-width: 12ch;
+}
+
+/* =========================================================
+   2. Section 01 — Platform Statement
+   ========================================================= */
+
+.about-statement {
+    overflow: hidden;
+}
+
+.about-statement__grid {
+    display: grid;
+    grid-template-columns:
+        minmax(3rem, 0.8fr) repeat(11, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.about-statement__index {
+    grid-column: 1;
+    padding-top: 0.75rem;
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4vw, 4rem);
+    line-height: 1;
+}
+
+.about-statement h2 {
+    grid-column: 2 / 10;
+    max-width: 15ch;
+    font-size: clamp(3.25rem, 6vw, 6.6rem);
+    line-height: 0.9;
+}
+
+.about-statement__support {
+    display: grid;
+    grid-column: 9 / 13;
+    gap: var(--space-5);
+    align-self: end;
+    padding-top: clamp(5rem, 10vw, 10rem);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-statement__support p:not(.lead) {
+    color: var(--color-text-muted);
+}
+
+/* =========================================================
+   3. Section 02 — Asymmetric Origin Composition
+   ========================================================= */
+
+.about-origin {
+    overflow: hidden;
+}
+
+.about-origin__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.08fr) minmax(22rem, 0.92fr);
+    align-items: center;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.about-origin__visual {
+    position: relative;
+    min-height: 45rem;
+}
+
+.about-origin__main {
+    position: absolute;
+    inset: 0 16% 4% 0;
+}
+
+.about-origin__main img,
+.about-origin__stone img,
+.about-origin__hardware img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-origin__stone {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    width: 36%;
+    aspect-ratio: 1;
+    border: 0.7rem solid var(--color-paper);
+}
+
+.about-origin__hardware {
+    position: absolute;
+    z-index: 2;
+    top: 8%;
+    right: 1%;
+    width: 24%;
+    aspect-ratio: 3 / 4;
+    border: 0.6rem solid var(--color-paper);
+}
+
+.about-origin__copy {
+    display: grid;
+    align-content: center;
+    gap: var(--space-6);
+}
+
+.about-origin__copy h2 {
+    max-width: 11.5ch;
+}
+
+.about-origin__copy p:not(.lead) {
+    color: var(--color-text-muted);
+}
+
+.about-origin__copy .text-link {
+    margin-top: var(--space-2);
+}
+
+/* =========================================================
+   4. Section 03 — Platform Flow
+   ========================================================= */
+
+.about-model-flow {
+    overflow: hidden;
+}
+
+.about-model-flow__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.about-model-flow__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.about-model-flow__track {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) 4rem minmax(0, 1fr) 4rem minmax(0, 1fr) 4rem minmax(0, 1fr);
+    align-items: start;
+}
+
+.about-model-flow__stage {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    min-width: 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-model-flow__icon {
+    display: grid;
+    width: 4.25rem;
+    height: 4.25rem;
+    place-items: center;
+    margin-bottom: var(--space-3);
+    color: var(--color-emerald);
+}
+
+.about-model-flow__icon svg {
+    width: 3rem;
+    height: 3rem;
+    stroke-width: 1.45;
+}
+
+.about-model-flow__stage>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.about-model-flow__stage h3 {
+    max-width: 9.5rem;
+}
+
+.about-model-flow__stage p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.about-model-flow__connector {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 5rem;
+    padding-top: 2.15rem;
+    color: var(--color-gold);
+}
+
+.about-model-flow__connector span {
+    height: 1px;
+    background: var(--color-border);
+}
+
+.about-model-flow__connector svg {
+    width: 1rem;
+    height: 1rem;
+    margin-left: -0.05rem;
+}
+
+.about-model-flow__notice {
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+/* =========================================================
+   5. Section 04 — BathNice Boundaries
+   ========================================================= */
+
+.about-boundaries {
+    background: var(--color-white);
+}
+
+.about-boundaries__heading {
+    padding-block:
+        var(--section-space-large) clamp(3rem, 6vw, 5rem);
+}
+
+.about-boundaries__heading .container-wide {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.about-boundaries__heading h2 {
+    max-width: 14ch;
+}
+
+.about-boundaries__split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-boundaries__side {
+    min-width: 0;
+}
+
+.about-boundaries__side--light {
+    background: var(--color-paper);
+    color: var(--color-ink);
+}
+
+.about-boundaries__side--dark {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.about-boundaries__inner {
+    width: 100%;
+    max-width: 43rem;
+    padding:
+        clamp(4rem, 7vw, 7rem) var(--page-gutter);
+}
+
+.about-boundaries__side--light .about-boundaries__inner {
+    margin-left: auto;
+}
+
+.about-boundaries__side--dark .about-boundaries__inner {
+    margin-right: auto;
+}
+
+.about-boundaries__title {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.about-boundaries__title>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.about-boundaries__title h3 {
+    max-width: 11ch;
+    font-size: clamp(2.5rem, 4.4vw, 4.5rem);
+    line-height: 0.96;
+}
+
+.about-boundaries__rows {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.about-boundaries__side--dark .about-boundaries__rows {
+    border-top-color: var(--color-border-light);
+}
+
+.about-boundaries__rows li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-5);
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-boundaries__side--dark .about-boundaries__rows li {
+    border-bottom-color: var(--color-border-light);
+}
+
+.about-boundaries__rows svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-emerald);
+    stroke-width: 1.5;
+}
+
+.about-boundaries__side--dark .about-boundaries__rows svg {
+    color: var(--color-gold-light);
+}
+
+.about-boundaries__rows div {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.about-boundaries__rows h4 {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+
+.about-boundaries__rows p {
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.7;
+}
+
+.about-boundaries__side--dark .about-boundaries__rows p {
+    color: rgba(255, 255, 255, 0.66);
+}
+
+/* =========================================================
+   6. Section 05 — Sticky User Journey
+   ========================================================= */
+
+.about-journey {
+    overflow: visible;
+}
+
+.about-journey__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(20rem, 0.76fr) minmax(0, 1.24fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.about-journey__aside {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.about-journey__aside h2 {
+    max-width: 10.5ch;
+}
+
+.about-journey__aside .button {
+    width: fit-content;
+}
+
+.about-journey__progress {
+    position: relative;
+    width: 100%;
+    max-width: 25rem;
+    height: 1px;
+    overflow: hidden;
+    background: var(--color-border);
+}
+
+.about-journey__progress span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 33.333%;
+    background: var(--color-emerald);
+    transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-journey__status {
+    color: var(--color-text-muted);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.about-journey__status span {
+    color: var(--color-emerald);
+}
+
+.about-journey__chapters {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.about-journey__chapter {
+    display: grid;
+    gap: var(--space-7);
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-journey__chapter-head {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-5);
+}
+
+.about-journey__chapter-head>span {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1;
+}
+
+.about-journey__chapter-head div {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.about-journey__chapter-head p {
+    color: var(--color-emerald);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.about-journey__chapter-head h3 {
+    font-size: clamp(2rem, 3.5vw, 3.35rem);
+}
+
+.about-journey__media {
+    aspect-ratio: 3 / 2;
+}
+
+.about-journey__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-journey__chapter-copy {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(15rem, 0.7fr);
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+.about-journey__chapter-copy>p {
+    color: var(--color-text-muted);
+}
+
+.about-journey__chapter-copy ul {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.about-journey__chapter-copy li {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.about-journey__chapter-copy li::before {
+    position: absolute;
+    top: 1.15rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+    content: "";
+}
+
+.about-journey__chapter--decision {
+    gap: var(--space-8);
+}
+
+.about-journey__decision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-journey__decision-grid>div {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    min-width: 0;
+    padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.about-journey__decision-grid>div+div {
+    border-left: 1px solid var(--color-border);
+}
+
+.about-journey__decision-grid svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+}
+
+.about-journey__decision-grid h4 {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+}
+
+.about-journey__decision-grid p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+.about-journey__chapter .platform-notice {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   7. Section 06 — Principles Icon Row
+   ========================================================= */
+
+.about-principles {
+    overflow: hidden;
+}
+
+.about-principles__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.about-principles__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.about-principles__row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-principles__item {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    min-width: 0;
+    min-height: 22rem;
+    padding:
+        clamp(1.5rem, 3vw, 2.25rem) clamp(1.1rem, 2.2vw, 1.8rem);
+}
+
+.about-principles__item+.about-principles__item {
+    border-left: 1px solid var(--color-border);
+}
+
+.about-principles__item::after {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    left: 1rem;
+    height: 2px;
+    background: var(--color-emerald);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.about-principles__item:hover::after,
+.about-principles__item:focus-within::after {
+    transform: scaleX(1);
+}
+
+.about-principles__item svg {
+    width: 3.1rem;
+    height: 3.1rem;
+    margin-bottom: var(--space-4);
+    color: var(--color-ink);
+    stroke-width: 1.4;
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.about-principles__item:hover svg {
+    color: var(--color-gold);
+    transform: translateY(-0.25rem);
+}
+
+.about-principles__item>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.about-principles__item h3 {
+    font-size: clamp(1.55rem, 2.1vw, 2rem);
+}
+
+.about-principles__item p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   8. Section 07 — Room Detail Parallax
+   ========================================================= */
+
+.about-parallax {
+    position: relative;
+    min-height: clamp(29rem, 39vw, 34rem);
+    overflow: hidden;
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.about-parallax__media,
+.about-parallax__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.about-parallax__media {
+    inset: -7% 0;
+    will-change: transform;
+}
+
+.about-parallax__media img {
+    width: 100%;
+    height: 114%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-parallax__overlay {
+    background: rgba(17, 18, 15, 0.64);
+}
+
+.about-parallax__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    min-height: inherit;
+    align-content: center;
+    justify-items: center;
+    gap: var(--space-5);
+    padding-block: clamp(5rem, 9vw, 8rem);
+    text-align: center;
+}
+
+.about-parallax__content h2 {
+    max-width: 15ch;
+}
+
+.about-parallax__content p {
+    max-width: 49rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================================================
+   9. Section 08 — Provider Information Accordion
+   ========================================================= */
+
+.about-provider-info {
+    overflow: visible;
+}
+
+.about-provider-info__layout {
+    display: grid;
+    grid-template-columns:
+        minmax(20rem, 0.76fr) minmax(0, 1.24fr);
+    align-items: start;
+    gap: clamp(4rem, 8vw, 8rem);
+}
+
+.about-provider-info__intro {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.about-provider-info__intro h2 {
+    max-width: 10.5ch;
+}
+
+.about-provider-info__intro .platform-notice {
+    border-bottom: 0;
+}
+
+.about-provider-info__accordion .accordion__trigger {
+    grid-template-columns:
+        3rem minmax(0, 1fr) auto;
+}
+
+.about-provider-info__number {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+    opacity: 0.5;
+}
+
+.about-provider-info__accordion .accordion__item {
+    position: relative;
+}
+
+.about-provider-info__accordion .accordion__item::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1rem;
+    width: 2px;
+    background: var(--color-gold);
+    content: "";
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition:
+        opacity var(--transition-base),
+        transform var(--transition-base);
+}
+
+.about-provider-info__accordion .accordion__item:has(.accordion__trigger[aria-expanded="true"])::before {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* =========================================================
+   10. Section 09 — Responsibility Split
+   ========================================================= */
+
+.about-responsibilities {
+    overflow: hidden;
+}
+
+.about-responsibilities__heading {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.about-responsibilities__heading .lead {
+    max-width: 31rem;
+    justify-self: end;
+}
+
+.about-responsibilities__table {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-responsibilities__column {
+    min-width: 0;
+}
+
+.about-responsibilities__column+.about-responsibilities__column {
+    border-left: 1px solid var(--color-border);
+}
+
+.about-responsibilities__column header {
+    display: grid;
+    min-height: 17rem;
+    align-content: start;
+    gap: var(--space-4);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--color-paper);
+}
+
+.about-responsibilities__column header>span {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.about-responsibilities__column header svg {
+    width: 3rem;
+    height: 3rem;
+    margin-block: var(--space-3);
+    color: var(--color-emerald);
+    stroke-width: 1.45;
+}
+
+.about-responsibilities__column header h3 {
+    max-width: 10ch;
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+}
+
+.about-responsibilities__column dl {
+    display: grid;
+}
+
+.about-responsibilities__column dl>div {
+    display: grid;
+    gap: 0.5rem;
+    min-height: 10.5rem;
+    align-content: start;
+    padding: clamp(1.4rem, 3vw, 2.25rem);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-responsibilities__column dt {
+    color: var(--color-ink);
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+.about-responsibilities__column dd {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   11. Section 10 — About FAQ
+   ========================================================= */
+
+.about-faq {
+    overflow: hidden;
+}
+
+.about-faq__heading {
+    display: grid;
+    max-width: 58rem;
+    gap: var(--space-5);
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.about-faq__heading h2 {
+    max-width: 12.5ch;
+}
+
+.about-faq__accordion {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+}
+
+.about-faq__item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-faq__item:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+}
+
+.about-faq__trigger {
+    display: grid;
+    width: 100%;
+    min-height: 9.5rem;
+    grid-template-columns:
+        2.5rem minmax(0, 1fr) 2.75rem;
+    align-items: start;
+    gap: var(--space-4);
+    padding: 1.75rem;
+    text-align: left;
+}
+
+.about-faq__number {
+    color: var(--color-gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    padding-top: 0.35rem;
+}
+
+.about-faq__question {
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    line-height: 1.08;
+}
+
+.about-faq__icon {
+    position: relative;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    transition:
+        border-color var(--transition-base),
+        background-color var(--transition-base);
+}
+
+.about-faq__icon::before,
+.about-faq__icon::after {
+    position: absolute;
+    width: 0.85rem;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transition: transform var(--transition-base);
+}
+
+.about-faq__icon::after {
+    transform: rotate(90deg);
+}
+
+.about-faq__trigger:hover .about-faq__icon,
+.about-faq__trigger:focus-visible .about-faq__icon {
+    border-color: var(--color-gold);
+    background: var(--color-gold);
+}
+
+.about-faq__trigger[aria-expanded="true"] .about-faq__icon::after {
+    transform: rotate(0deg);
+}
+
+.about-faq__panel {
+    overflow: hidden;
+    transition: height 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-faq__answer {
+    padding:
+        0 5.5rem 2rem 5.75rem;
+}
+
+.about-faq__answer p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.about-faq__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-7);
+    padding-top: clamp(2rem, 5vw, 4rem);
+}
+
+.about-faq__footer p {
+    max-width: 50rem;
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+}
+
+/* =========================================================
+   12. Wide Desktop
+   ========================================================= */
+
+@media (max-width: 1280px) {
+    .about-origin__visual {
+        min-height: 40rem;
+    }
+
+    .about-statement h2 {
+        grid-column: 2 / 9;
+    }
+
+    .about-statement__support {
+        grid-column: 9 / 13;
+    }
+
+    .about-model-flow__track {
+        grid-template-columns:
+            minmax(0, 1fr) 2.75rem minmax(0, 1fr) 2.75rem minmax(0, 1fr) 2.75rem minmax(0, 1fr);
+    }
+
+    .about-principles__item {
+        min-height: 21rem;
+        padding-inline: 1.25rem;
+    }
+
+    .about-responsibilities__column header {
+        min-height: 16rem;
+    }
+
+    .about-responsibilities__column dl>div {
+        min-height: 11rem;
+    }
+}
+
+/* =========================================================
+   13. Navigation Breakpoint
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .about-origin__layout {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(19rem, 0.82fr);
+        gap: 4rem;
+    }
+
+    .about-origin__visual {
+        min-height: 35rem;
+    }
+
+    .about-model-flow__track {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--color-border);
+        border: 1px solid var(--color-border);
+    }
+
+    .about-model-flow__stage {
+        min-height: 23rem;
+        padding: 1.5rem;
+        border-top: 0;
+        background: var(--color-white);
+    }
+
+    .about-model-flow__connector {
+        display: none;
+    }
+
+    .about-journey__layout,
+    .about-provider-info__layout {
+        grid-template-columns:
+            minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+        gap: 4rem;
+    }
+
+    .about-principles__row {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .about-principles__item {
+        min-height: 19rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-principles__item:nth-child(4) {
+        border-left: 0;
+    }
+
+    .about-principles__item:nth-child(4),
+    .about-principles__item:nth-child(5) {
+        border-bottom: 0;
+    }
+
+    .about-principles__item:nth-child(5) {
+        grid-column: span 2;
+    }
+
+    .about-responsibilities__column dl>div {
+        min-height: 12rem;
+    }
+
+    .about-faq__trigger {
+        min-height: 10.5rem;
+    }
+}
+
+/* =========================================================
+   14. Tablet
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .about-statement__grid {
+        grid-template-columns:
+            3rem repeat(7, minmax(0, 1fr));
+    }
+
+    .about-statement__index {
+        grid-column: 1;
+    }
+
+    .about-statement h2 {
+        grid-column: 2 / 9;
+    }
+
+    .about-statement__support {
+        grid-column: 3 / 9;
+        padding-top: 4rem;
+    }
+
+    .about-origin__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .about-origin__visual {
+        width: min(44rem, 100%);
+        min-height: 42rem;
+    }
+
+    .about-origin__copy {
+        max-width: 48rem;
+    }
+
+    .about-model-flow__heading,
+    .about-principles__heading,
+    .about-responsibilities__heading {
+        grid-template-columns: 1fr;
+    }
+
+    .about-model-flow__heading .lead,
+    .about-principles__heading .lead,
+    .about-responsibilities__heading .lead {
+        justify-self: start;
+    }
+
+    .about-boundaries__split {
+        grid-template-columns: 1fr;
+    }
+
+    .about-boundaries__inner {
+        max-width: calc(var(--container-main) + (var(--page-gutter) * 2));
+        margin-inline: auto;
+    }
+
+    .about-boundaries__side--light .about-boundaries__inner,
+    .about-boundaries__side--dark .about-boundaries__inner {
+        margin-inline: auto;
+    }
+
+    .about-journey__layout,
+    .about-provider-info__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .about-journey__aside,
+    .about-provider-info__intro {
+        max-width: 48rem;
+    }
+
+    .about-journey__chapter-copy {
+        grid-template-columns:
+            minmax(0, 1fr) minmax(13rem, 0.7fr);
+    }
+
+    .about-parallax__media {
+        inset: 0;
+        transform: none;
+        will-change: auto;
+    }
+
+    .about-parallax__media img {
+        height: 100%;
+    }
+
+    .about-responsibilities__table {
+        grid-template-columns: 1fr;
+    }
+
+    .about-responsibilities__column+.about-responsibilities__column {
+        border-top: 1px solid var(--color-border);
+        border-left: 0;
+    }
+
+    .about-responsibilities__column {
+        display: grid;
+        grid-template-columns:
+            minmax(14rem, 0.38fr) minmax(0, 0.62fr);
+    }
+
+    .about-responsibilities__column header {
+        min-height: 100%;
+    }
+
+    .about-responsibilities__column dl {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-responsibilities__column dl>div {
+        min-height: 11rem;
+    }
+
+    .about-responsibilities__column dl>div:nth-child(even) {
+        border-left: 1px solid var(--color-border);
+    }
+}
+
+/* =========================================================
+   15. Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .about-hero .inner-hero__media img {
+        object-position: 59% center;
+    }
+
+    .about-statement__grid {
+        grid-template-columns: 2.25rem minmax(0, 1fr);
+    }
+
+    .about-statement__index {
+        grid-column: 1;
+        font-size: 2.25rem;
+    }
+
+    .about-statement h2 {
+        grid-column: 2;
+        font-size: clamp(2.75rem, 12vw, 4rem);
+        line-height: 0.94;
+    }
+
+    .about-statement__support {
+        grid-column: 1 / -1;
+        padding-top: 3rem;
+        margin-top: 1rem;
+    }
+
+    .about-origin__visual {
+        min-height: 32rem;
+    }
+
+    .about-origin__main {
+        right: 14%;
+        bottom: 8%;
+    }
+
+    .about-origin__stone {
+        width: 38%;
+        border-width: 0.5rem;
+    }
+
+    .about-origin__hardware {
+        width: 26%;
+        border-width: 0.45rem;
+    }
+
+    .about-model-flow__track {
+        grid-template-columns: 1fr;
+        gap: 0;
+        background: transparent;
+        border: 0;
+    }
+
+    .about-model-flow__stage {
+        position: relative;
+        min-height: 0;
+        grid-template-columns:
+            3.75rem minmax(0, 1fr);
+        gap: var(--space-4);
+        padding: 1.75rem 0;
+        border-top: 1px solid var(--color-border);
+        background: transparent;
+    }
+
+    .about-model-flow__stage:last-child {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-model-flow__icon {
+        grid-column: 1;
+        grid-row: 1 / 5;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .about-model-flow__icon svg {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .about-model-flow__stage>span,
+    .about-model-flow__stage h3,
+    .about-model-flow__stage p {
+        grid-column: 2;
+    }
+
+    .about-model-flow__stage h3 {
+        max-width: none;
+    }
+
+    .about-boundaries__heading {
+        padding-bottom: 3rem;
+    }
+
+    .about-boundaries__inner {
+        padding-block: 4rem;
+    }
+
+    .about-boundaries__rows li {
+        grid-template-columns:
+            2.5rem minmax(0, 1fr);
+    }
+
+    .about-boundaries__rows svg {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .about-journey__chapter {
+        padding-block: 3rem;
+    }
+
+    .about-journey__chapter-head {
+        grid-template-columns:
+            3rem minmax(0, 1fr);
+    }
+
+    .about-journey__chapter-head>span {
+        font-size: 2.25rem;
+    }
+
+    .about-journey__chapter-copy {
+        grid-template-columns: 1fr;
+    }
+
+    .about-journey__decision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-journey__decision-grid>div+div {
+        border-top: 1px solid var(--color-border);
+        border-left: 0;
+    }
+
+    .about-principles__row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-principles__item {
+        min-height: 18rem;
+    }
+
+    .about-principles__item:nth-child(3) {
+        border-left: 0;
+    }
+
+    .about-principles__item:nth-child(4) {
+        border-left: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-principles__item:nth-child(5) {
+        grid-column: 1 / -1;
+        min-height: 16rem;
+        border-left: 0;
+    }
+
+    .about-parallax {
+        min-height: 27rem;
+    }
+
+    .about-provider-info__accordion .accordion__trigger {
+        grid-template-columns:
+            2.25rem minmax(0, 1fr) auto;
+    }
+
+    .about-provider-info__number {
+        font-size: 1.5rem;
+    }
+
+    .about-provider-info__accordion .accordion__item::before {
+        left: -0.5rem;
+    }
+
+    .about-responsibilities__column {
+        grid-template-columns: 1fr;
+    }
+
+    .about-responsibilities__column header {
+        min-height: 0;
+        padding-block: 2rem;
+    }
+
+    .about-responsibilities__column dl {
+        grid-template-columns: 1fr;
+    }
+
+    .about-responsibilities__column dl>div {
+        min-height: 0;
+    }
+
+    .about-responsibilities__column dl>div:nth-child(even) {
+        border-left: 0;
+    }
+
+    .about-faq__accordion {
+        grid-template-columns: 1fr;
+    }
+
+    .about-faq__item:nth-child(odd) {
+        border-right: 0;
+    }
+
+    .about-faq__trigger {
+        min-height: 7.5rem;
+        grid-template-columns:
+            2rem minmax(0, 1fr) 2.625rem;
+        padding: 1.5rem 0;
+    }
+
+    .about-faq__answer {
+        padding:
+            0 0 1.75rem 3rem;
+    }
+
+    .about-faq__footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================================
+   16. Narrow Mobile
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .about-origin__visual {
+        min-height: 27rem;
+    }
+
+    .about-origin__stone {
+        width: 40%;
+    }
+
+    .about-origin__hardware {
+        top: 5%;
+        width: 28%;
+    }
+
+    .about-boundaries__title h3 {
+        font-size: clamp(2.35rem, 11vw, 3.2rem);
+    }
+
+    .about-journey__chapter-head {
+        grid-template-columns:
+            2.5rem minmax(0, 1fr);
+        gap: 0.9rem;
+    }
+
+    .about-journey__chapter-head>span {
+        font-size: 1.9rem;
+    }
+
+    .about-journey__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .about-principles__row {
+        grid-template-columns: 1fr;
+    }
+
+    .about-principles__item,
+    .about-principles__item:nth-child(4),
+    .about-principles__item:nth-child(5) {
+        grid-column: auto;
+        min-height: 0;
+        padding-block: 2rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+        border-left: 0;
+    }
+
+    .about-principles__item:last-child {
+        border-bottom: 0;
+    }
+
+    .about-principles__item svg {
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: var(--space-2);
+    }
+
+    .about-parallax {
+        min-height: 25rem;
+    }
+
+    .about-provider-info__accordion .accordion__trigger {
+        grid-template-columns:
+            1.75rem minmax(0, 1fr) 2.625rem;
+        gap: 0.75rem;
+    }
+
+    .about-provider-info__number {
+        font-size: 1.25rem;
+    }
+
+    .about-faq__trigger {
+        grid-template-columns:
+            1.6rem minmax(0, 1fr) 2.625rem;
+        gap: 0.7rem;
+    }
+
+    .about-faq__answer {
+        padding-left: 2.3rem;
+    }
+}
+
+/* =========================================================
+   17. Compact Mobile
+   ========================================================= */
+
+@media (max-width: 420px) {
+    .about-statement__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-statement__index,
+    .about-statement h2 {
+        grid-column: 1;
+    }
+
+    .about-statement__index {
+        padding-top: 0;
+    }
+
+    .about-statement__support {
+        grid-column: 1;
+    }
+
+    .about-origin__visual {
+        min-height: 23rem;
+    }
+
+    .about-origin__main {
+        right: 12%;
+    }
+
+    .about-origin__stone {
+        width: 42%;
+    }
+
+    .about-origin__hardware {
+        width: 29%;
+    }
+
+    .about-model-flow__stage {
+        grid-template-columns:
+            3rem minmax(0, 1fr);
+    }
+
+    .about-model-flow__icon {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    .about-model-flow__icon svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .about-boundaries__rows li {
+        grid-template-columns:
+            2rem minmax(0, 1fr);
+        gap: 0.9rem;
+    }
+
+    .about-journey__chapter-head {
+        grid-template-columns: 1fr;
+    }
+
+    .about-journey__chapter-head>span {
+        grid-row: auto;
+    }
+
+    .about-parallax {
+        min-height: 24rem;
+    }
+
+    .about-faq__trigger {
+        grid-template-columns:
+            minmax(0, 1fr) 2.625rem;
+    }
+
+    .about-faq__number {
+        display: none;
+    }
+
+    .about-faq__answer {
+        padding-left: 0;
+    }
+}
+
+/* =========================================================
+   18. Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .about-journey__progress span {
+        transition: none;
+    }
+
+    .about-principles__item::after,
+    .about-principles__item svg,
+    .about-provider-info__accordion .accordion__item::before,
+    .about-faq__icon::after {
+        transition: none;
+    }
+
+    .about-parallax__media {
+        inset: 0;
+        transform: none;
+        will-change: auto;
+    }
+
+    .about-parallax__media img {
+        height: 100%;
+    }
+}
