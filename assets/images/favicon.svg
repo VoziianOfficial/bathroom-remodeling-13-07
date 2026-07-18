@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">BathNice</title>
+  <rect width="64" height="64" rx="10" fill="#1a1b18"/>
+  <path d="M17 15h14.2c8 0 12.4 3.4 12.4 9.2 0 3.6-2 6.4-5.5 7.8 4.7 1.2 7.2 4.2 7.2 8.6C45.3 47.5 40 51 30.9 51H17V15Zm12.7 14c4.3 0 6.5-1.4 6.5-4.4 0-2.8-2.1-4.2-6.3-4.2h-5.5V29h5.3Zm.8 16.5c4.9 0 7.3-1.7 7.3-5.3 0-3.5-2.5-5.2-7.5-5.2h-5.9v10.5h6.1Z" fill="#fff"/>
+  <path d="M39.5 15H47v36h-5.6L26.8 29.7V51h-7.5V15H25l14.5 21.2V15Z" fill="#dfc28d" fill-opacity=".92"/>
+</svg>

@@ -27,7 +27,7 @@
         return;
     }
 
-    const state = {
+        const state = {
         mobileMenuOpen: false,
         previousFocusedElement: null,
         dropdownCloseTimer: null,
@@ -58,7 +58,8 @@
         cookiePanel: ".cookie-consent",
         cookieAction: "[data-cookie-action]",
 
-        imageMask: ".image-mask-reveal"
+        imageMask: ".image-mask-reveal",
+        backToTop: ".back-to-top"
     };
 
     const focusableSelector = [
@@ -565,6 +566,77 @@
         );
     }
 
+    function updateBackToTopState(button) {
+        const revealPoint = Math.max(
+            600,
+            window.innerHeight * 0.75
+        );
+
+        const isVisible = window.scrollY > revealPoint;
+
+        button.classList.toggle("is-visible", isVisible);
+        button.setAttribute("aria-hidden", String(!isVisible));
+        button.tabIndex = isVisible ? 0 : -1;
+    }
+
+    function initBackToTop() {
+        let button = document.querySelector(
+            selectors.backToTop
+        );
+
+        if (!button) {
+            button = document.createElement("button");
+            button.className = "back-to-top";
+            button.type = "button";
+            button.append(createLucideIcon("arrow-up"));
+            document.body.append(button);
+        }
+
+        const label =
+            config.accessibility?.backToTopLabel ||
+            "Back to top";
+
+        button.setAttribute("aria-label", label);
+        button.setAttribute("title", label);
+
+        updateBackToTopState(button);
+
+        button.addEventListener("click", () => {
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            window.scrollTo({
+                top: 0,
+                behavior: reducedMotion ? "auto" : "smooth"
+            });
+
+            const main = document.querySelector(selectors.main);
+
+            if (main instanceof HTMLElement) {
+                if (!main.hasAttribute("tabindex")) {
+                    main.setAttribute("tabindex", "-1");
+                }
+
+                window.setTimeout(() => {
+                    main.focus({
+                        preventScroll: true
+                    });
+                }, 0);
+            }
+        });
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                updateBackToTopState(button);
+            },
+            {
+                passive: true
+            }
+        );
+    }
+
     function getDropdownElements() {
         const dropdownItem = document.querySelector(
             selectors.dropdownItem
@@ -811,8 +883,23 @@
         document.body.classList.add("menu-open");
         setPageInert(true);
 
-        const focusable = getMenuFocusableElements(menu);
-        focusable[0]?.focus();
+        window.setTimeout(() => {
+            if (!state.mobileMenuOpen) {
+                return;
+            }
+
+            const focusable = getMenuFocusableElements(menu);
+            focusable[0]?.focus({
+                preventScroll: true
+            });
+
+            if (!menu.contains(document.activeElement)) {
+                menu.tabIndex = -1;
+                menu.focus({
+                    preventScroll: true
+                });
+            }
+        }, 0);
     }
 
     function closeMobileMenu({
@@ -1270,6 +1357,9 @@
             )
         ) {
             showCookiePanel(panel);
+        } else {
+            document.documentElement.dataset.cookieConsent =
+                savedChoice.choice;
         }
 
         panel
@@ -1325,6 +1415,10 @@
             return;
         }
 
+        document.documentElement.classList.add(
+            "image-reveals-ready"
+        );
+
         const observer = new IntersectionObserver(
             (entries, revealObserver) => {
                 entries.forEach((entry) => {
@@ -1352,8 +1446,6 @@
             return;
         }
 
-        state.aosInitialized = true;
-
         const reducedMotion = window.matchMedia(
             "(prefers-reduced-motion: reduce)"
         ).matches;
@@ -1374,24 +1466,33 @@
             window.AOS &&
             typeof window.AOS.init === "function"
         ) {
-            window.AOS.init({
-                once: true,
-                mirror: false,
-                offset: 80,
-                duration: 760,
-                easing:
-                    "cubic-bezier(0.22, 1, 0.36, 1)",
-                anchorPlacement: "top-bottom"
-            });
-        }
-    }
+            try {
+                document.documentElement.classList.add(
+                    "aos-ready"
+                );
 
-    function refreshAOS() {
-        if (
-            window.AOS &&
-            typeof window.AOS.refresh === "function"
-        ) {
-            window.AOS.refresh();
+                window.AOS.init({
+                    once: true,
+                    mirror: false,
+                    offset: 80,
+                    duration: 760,
+                    easing:
+                        "cubic-bezier(0.22, 1, 0.36, 1)",
+                    anchorPlacement: "top-bottom",
+                    disable: () => {
+                        return window.matchMedia(
+                            "(prefers-reduced-motion: reduce)"
+                        ).matches;
+                    }
+                });
+
+                state.aosInitialized = true;
+            } catch (error) {
+                document.documentElement.classList.remove(
+                    "aos-ready"
+                );
+                console.warn("AOS enhancement unavailable.", error);
+            }
         }
     }
 
@@ -1431,6 +1532,7 @@
         applyConfig(document);
         setActiveNavigation(document);
 
+        initBackToTop();
         refreshLucideIcons();
 
         initHeaderHeightObserver();
@@ -1443,7 +1545,9 @@
         initExternalSecurity();
         initAOS();
 
-        refreshAOS();
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js-enhanced");
+
         dispatchReadyEvent();
     }
 
@@ -1463,7 +1567,6 @@
         "load",
         () => {
             updateHeaderHeight();
-            refreshAOS();
         },
         {
             once: true
@@ -1473,7 +1576,6 @@
     if (document.fonts?.ready) {
         document.fonts.ready.then(() => {
             updateHeaderHeight();
-            refreshAOS();
         });
     }
 })();

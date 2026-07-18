@@ -31,7 +31,7 @@
 .contact-intro__layout {
     display: grid;
     grid-template-columns:
-        minmax(0, 0.9fr) minmax(29rem, 1.1fr);
+        minmax(27rem, 0.95fr) minmax(29rem, 1.05fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -43,7 +43,7 @@
 }
 
 .contact-intro__copy h2 {
-    max-width: 10.5ch;
+    max-width: 16ch;
 }
 
 .contact-intro__copy>p:not(.lead) {
@@ -232,7 +232,7 @@
 .contact-request__layout {
     display: grid;
     grid-template-columns:
-        minmax(20rem, 0.72fr) minmax(0, 1.28fr);
+        minmax(28rem, 0.82fr) minmax(0, 1.18fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -243,7 +243,8 @@
 }
 
 .contact-request__aside h2 {
-    max-width: 10.5ch;
+    max-width: 18ch;
+    font-size: clamp(2.8rem, 3.8vw, 4.1rem);
 }
 
 .contact-request__aside-points {
@@ -765,7 +766,7 @@
 }
 
 .contact-clarity__heading h2 {
-    max-width: 14ch;
+    max-width: 22ch;
 }
 
 .contact-clarity__split {
@@ -886,7 +887,7 @@
 .contact-faq__layout {
     display: grid;
     grid-template-columns:
-        minmax(20rem, 0.76fr) minmax(0, 1.24fr);
+        minmax(30rem, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -897,7 +898,8 @@
 }
 
 .contact-faq__aside h2 {
-    max-width: 10.5ch;
+    max-width: 19ch;
+    font-size: clamp(2.8rem, 3.8vw, 4.1rem);
 }
 
 .contact-faq__accordion .accordion__trigger {
@@ -1042,7 +1044,8 @@
     line-height: 1.65;
 }
 
-.contact-alternative:hover .contact-alternative__media img {
+.contact-alternative:hover .contact-alternative__media img,
+.contact-alternative:focus-within .contact-alternative__media img {
     transform: scale(1.025);
 }
 
@@ -1162,7 +1165,7 @@
    11. Tablet
    ========================================================= */
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .contact-intro__layout {
         grid-template-columns: 1fr;
     }
@@ -1591,7 +1594,8 @@
         animation-duration: 1.5s;
     }
 
-    .contact-alternative:hover .contact-alternative__media img {
+    .contact-alternative:hover .contact-alternative__media img,
+    .contact-alternative:focus-within .contact-alternative__media img {
         transform: none;
     }
 }

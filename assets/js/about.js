@@ -54,17 +54,6 @@
         }
     }
 
-    function refreshAOS() {
-        if (
-            window.AOS &&
-            typeof window.AOS.refresh === "function"
-        ) {
-            window.requestAnimationFrame(() => {
-                window.AOS.refresh();
-            });
-        }
-    }
-
     /* =======================================================
        Journey Progress
        ======================================================= */
@@ -468,7 +457,6 @@
 
                 updateParallaxMode();
                 calculateClosestJourneyStep();
-                refreshAOS();
             });
     }
 
@@ -519,7 +507,6 @@
             }
         );
 
-        refreshAOS();
 
         document.dispatchEvent(
             new CustomEvent("bathnice:about-ready", {
@@ -552,7 +539,6 @@
 
             calculateClosestJourneyStep();
             updateParallaxMode();
-            refreshAOS();
         },
         {
             once: true

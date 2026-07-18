@@ -1092,13 +1092,13 @@
         grid-template-columns: 1fr;
     }
 
-    .legal-document__sidebar {
-        position: relative;
+    .legal-page .legal-document__sidebar {
+        position: static;
         top: auto;
     }
 
-    .legal-document__nav {
-        position: relative;
+    .legal-page .legal-document__nav {
+        position: static;
         top: auto;
         max-height: none;
         overflow: visible;

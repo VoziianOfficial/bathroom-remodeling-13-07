@@ -292,7 +292,7 @@
 }
 
 .home-platform-intro__copy h2 {
-    max-width: 11.5ch;
+    max-width: 16ch;
 }
 
 .home-platform-intro__drawing {
@@ -504,7 +504,7 @@
 
 .home-path__layout {
     display: grid;
-    grid-template-columns: minmax(21rem, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(30rem, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -515,7 +515,8 @@
 }
 
 .home-path__intro h2 {
-    max-width: 11ch;
+    max-width: 19ch;
+    font-size: clamp(2.8rem, 3.8vw, 4.1rem);
 }
 
 .home-path__intro .button {
@@ -877,6 +878,25 @@
     margin-top: var(--space-8);
 }
 
+/* Progressive enhancement: expose every planning item if Swiper is absent. */
+.home-materials__slider:not(.swiper-initialized) .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    transform: none;
+}
+
+.home-materials__slider:not(.swiper-initialized) .home-materials__slide {
+    width: auto;
+}
+
+.home-materials:has(.home-materials__slider:not(.swiper-initialized))
+    .home-materials__navigation,
+.home-materials:has(.home-materials__slider:not(.swiper-initialized))
+    .home-materials__progress {
+    display: none;
+}
+
 /* =========================================================
    9. Section 08 — Bathroom Hotspots
    ========================================================= */
@@ -1022,6 +1042,14 @@
     display: none;
 }
 
+.no-js .home-hotspots__desktop {
+    display: none;
+}
+
+.no-js .home-hotspots__mobile {
+    display: block;
+}
+
 .home-hotspots__mobile-image {
     aspect-ratio: 16 / 10;
     overflow: hidden;
@@ -1044,7 +1072,7 @@
 
 .home-provider-checklist__layout {
     display: grid;
-    grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(30rem, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1055,7 +1083,8 @@
 }
 
 .home-provider-checklist__intro h2 {
-    max-width: 11ch;
+    max-width: 22ch;
+    font-size: clamp(2.8rem, 3.5vw, 3.8rem);
 }
 
 .home-provider-checklist__intro p {
@@ -1084,7 +1113,7 @@
 
 .home-planning__layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(25rem, 1.1fr);
+    grid-template-columns: minmax(26rem, 0.82fr) minmax(25rem, 1.18fr);
     align-items: center;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1095,7 +1124,7 @@
 }
 
 .home-planning__copy h2 {
-    max-width: 11ch;
+    max-width: 16ch;
 }
 
 .home-planning__list {
@@ -1178,7 +1207,7 @@
 
 .home-faq__layout {
     display: grid;
-    grid-template-columns: minmax(20rem, 0.78fr) minmax(0, 1.22fr);
+    grid-template-columns: minmax(30rem, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1189,7 +1218,8 @@
 }
 
 .home-faq__aside h2 {
-    max-width: 10.5ch;
+    max-width: 19ch;
+    font-size: clamp(2.8rem, 3.8vw, 4.1rem);
 }
 
 .home-faq__aside p {
@@ -1356,6 +1386,10 @@
    ========================================================= */
 
 @media (max-width: 1100px) {
+    .home-materials__slider:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .home-hero {
         min-height: clamp(38rem, 66vw, 44rem);
     }
@@ -1417,7 +1451,7 @@
    16. Tablet
    ========================================================= */
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .home-hero__content {
         max-width: 48rem;
     }
@@ -1654,6 +1688,19 @@
         gap: 0;
     }
 
+    .home-service-mosaic__viewport:not(.swiper-initialized) {
+        overflow: visible;
+    }
+
+    .home-service-mosaic__viewport:not(.swiper-initialized)
+        .home-service-mosaic__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        gap: 0.75rem;
+        transform: none;
+    }
+
     .home-service-mosaic__tile,
     .home-service-mosaic__tile--full,
     .home-service-mosaic__tile--shower,
@@ -1663,6 +1710,14 @@
     .home-service-mosaic__tile--accessible {
         width: 86%;
         height: 30rem;
+    }
+
+    .home-service-mosaic__viewport:not(.swiper-initialized)
+        .home-service-mosaic__tile {
+        width: auto;
+        height: 24rem;
+        grid-column: auto;
+        grid-row: auto;
     }
 
     .home-service-mosaic__content h3 {
@@ -1756,6 +1811,14 @@
         width: 84vw;
     }
 
+    .home-materials__slider:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-materials__slider:not(.swiper-initialized) .home-materials__slide {
+        width: auto;
+    }
+
     .home-materials__content {
         min-height: 12.5rem;
     }
@@ -1807,6 +1870,25 @@
     .home-photo-story__panel {
         width: 88%;
         flex: 0 0 auto;
+    }
+
+    .home-photo-story__viewport:not(.swiper-initialized) {
+        overflow: visible;
+    }
+
+    .home-photo-story__viewport:not(.swiper-initialized)
+        .home-photo-story__panels {
+        display: grid;
+        height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+        transform: none;
+    }
+
+    .home-photo-story__viewport:not(.swiper-initialized)
+        .home-photo-story__panel {
+        width: auto;
+        min-height: 31rem;
     }
 
     .home-photo-story__content {
@@ -1862,6 +1944,17 @@
     .home-service-mosaic__tile--accessible {
         width: 88%;
         height: 27rem;
+    }
+
+    .home-service-mosaic__viewport:not(.swiper-initialized)
+        .home-service-mosaic__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-service-mosaic__viewport:not(.swiper-initialized)
+        .home-service-mosaic__tile {
+        width: auto;
+        height: 25rem;
     }
 
     .home-path__step {

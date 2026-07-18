@@ -64,17 +64,6 @@
         return typeof window.Swiper === "function";
     }
 
-    function refreshAOS() {
-        if (
-            window.AOS &&
-            typeof window.AOS.refresh === "function"
-        ) {
-            window.requestAnimationFrame(() => {
-                window.AOS.refresh();
-            });
-        }
-    }
-
     function addMediaListener(mediaQuery, handler) {
         if (
             typeof mediaQuery.addEventListener === "function"
@@ -149,7 +138,6 @@
             }
         });
 
-        refreshAOS();
     }
 
     function destroyServiceMosaicSwiper() {
@@ -428,7 +416,6 @@
             }
         });
 
-        refreshAOS();
     }
 
     function destroyStorySwiper() {
@@ -876,7 +863,6 @@
             });
         }
 
-        refreshAOS();
     }
 
     function handleReducedMotionChange() {
@@ -930,7 +916,6 @@
             handleReducedMotionChange
         );
 
-        refreshAOS();
 
         document.dispatchEvent(
             new CustomEvent("bathnice:home-ready")
@@ -964,7 +949,6 @@
                 state.materialsSwiper
             );
 
-            refreshAOS();
         },
         {
             once: true

@@ -313,7 +313,8 @@
 }
 
 .service-section-heading h2 {
-    max-width: 14ch;
+    max-width: 25ch;
+    font-size: clamp(2.9rem, 3.7vw, 4.2rem);
     margin: 0;
 }
 
@@ -342,7 +343,8 @@
 }
 
 .service-overview__main>h2 {
-    max-width: 14ch;
+    max-width: 22ch;
+    font-size: clamp(2.9rem, 4vw, 4.5rem);
     margin-bottom: 0.4rem;
 }
 
@@ -945,7 +947,7 @@
 .service-path__layout {
     display: grid;
     grid-template-columns:
-        minmax(18rem, 0.48fr) minmax(0, 1.15fr);
+        minmax(32rem, 0.9fr) minmax(0, 1.1fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -956,7 +958,8 @@
 }
 
 .service-path__intro h2 {
-    max-width: 10.5ch;
+    max-width: 22ch;
+    font-size: clamp(2.8rem, 3.5vw, 3.8rem);
     margin: 0;
 }
 
@@ -1186,7 +1189,7 @@
 .service-provider-checklist__layout {
     display: grid;
     grid-template-columns:
-        minmax(19rem, 0.58fr) minmax(0, 1.08fr);
+        minmax(32rem, 0.9fr) minmax(0, 1.1fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1197,7 +1200,8 @@
 }
 
 .service-provider-checklist__intro h2 {
-    max-width: 11.5ch;
+    max-width: 22ch;
+    font-size: clamp(2.8rem, 3.5vw, 3.8rem);
     margin: 0;
     color: var(--service-white);
 }
@@ -1307,7 +1311,8 @@
 }
 
 .service-related__header h2 {
-    max-width: 14ch;
+    max-width: 22ch;
+    font-size: clamp(2.9rem, 4vw, 4.5rem);
     margin: 0;
 }
 
@@ -1322,6 +1327,32 @@
 
 .service-related__slider .swiper-wrapper {
     align-items: stretch;
+}
+
+/* Progressive enhancement: related links remain available without Swiper. */
+.service-related__slider:not(.swiper-initialized) .swiper-wrapper,
+.service-related__slider.is-static .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    transform: none;
+}
+
+.service-related__slider:not(.swiper-initialized) .service-related__slide,
+.service-related__slider.is-static .service-related__slide {
+    width: auto;
+    opacity: 1;
+}
+
+.service-related:has(.service-related__slider:not(.swiper-initialized))
+    .service-related__controls,
+.service-related:has(.service-related__slider.is-static)
+    .service-related__controls,
+.service-related:has(.service-related__slider:not(.swiper-initialized))
+    .service-related__footer,
+.service-related:has(.service-related__slider.is-static)
+    .service-related__footer {
+    display: none;
 }
 
 .service-related__slide {
@@ -1486,7 +1517,7 @@
 .service-faq__layout {
     display: grid;
     grid-template-columns:
-        minmax(18rem, 0.52fr) minmax(0, 1.05fr);
+        minmax(32rem, 0.9fr) minmax(0, 1.1fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1497,7 +1528,8 @@
 }
 
 .service-faq__aside h2 {
-    max-width: 10.5ch;
+    max-width: 22ch;
+    font-size: clamp(2.8rem, 3.5vw, 3.8rem);
     margin: 0;
 }
 
@@ -1653,7 +1685,8 @@
     gap: 1.2rem;
 }
 
-.prefooter-cta:hover .prefooter-cta__media img {
+.prefooter-cta:hover .prefooter-cta__media img,
+.prefooter-cta:focus-within .prefooter-cta__media img {
     transform: scale(1.025);
 }
 
@@ -1786,6 +1819,11 @@
    ========================================================= */
 
 @media (max-width: 1024px) {
+    .service-related__slider:not(.swiper-initialized) .swiper-wrapper,
+    .service-related__slider.is-static .swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .service-page {
         --service-header-offset: calc(var(--header-height, 5rem) + 1rem);
     }
@@ -1819,10 +1857,10 @@
         grid-template-columns: 1fr;
     }
 
-    .service-sidebar,
-    .service-path__intro,
-    .service-faq__aside {
-        position: relative;
+    .service-page .service-sidebar,
+    .service-page .service-path__intro,
+    .service-page .service-faq__aside {
+        position: static;
         top: auto;
         transform: none !important;
     }
@@ -1873,7 +1911,8 @@
     }
 
     .service-path__intro h2 {
-        max-width: 13ch;
+        max-width: 22ch;
+        font-size: clamp(2.75rem, 5vw, 3.6rem);
     }
 
     .service-path__progress,
@@ -1890,7 +1929,8 @@
     }
 
     .service-provider-checklist__intro h2 {
-        max-width: 14ch;
+        max-width: 22ch;
+        font-size: clamp(2.75rem, 5vw, 3.6rem);
     }
 
     .service-faq__aside {
@@ -1898,7 +1938,8 @@
     }
 
     .service-faq__aside h2 {
-        max-width: 13ch;
+        max-width: 22ch;
+        font-size: clamp(2.75rem, 5vw, 3.6rem);
     }
 
     .prefooter-cta__content {
@@ -2077,6 +2118,11 @@
    ========================================================= */
 
 @media (max-width: 680px) {
+    .service-related__slider:not(.swiper-initialized) .swiper-wrapper,
+    .service-related__slider.is-static .swiper-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .service-hero {
         min-height: 48rem;
     }
@@ -2506,7 +2552,8 @@
     .service-related__slide>a:focus-visible,
     .service-related__slide>a:hover .service-related__media img,
     .service-related__slide>a:focus-visible .service-related__media img,
-    .prefooter-cta:hover .prefooter-cta__media img {
+    .prefooter-cta:hover .prefooter-cta__media img,
+    .prefooter-cta:focus-within .prefooter-cta__media img {
         transform: none;
     }
 

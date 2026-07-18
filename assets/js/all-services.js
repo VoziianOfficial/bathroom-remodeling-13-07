@@ -63,17 +63,6 @@
         }
     }
 
-    function refreshAOS() {
-        if (
-            window.AOS &&
-            typeof window.AOS.refresh === "function"
-        ) {
-            window.requestAnimationFrame(() => {
-                window.AOS.refresh();
-            });
-        }
-    }
-
     function preloadImage(source) {
         return new Promise((resolve, reject) => {
             const image = new Image();
@@ -168,7 +157,6 @@
 
         if (!source || !image) {
             replaceVanityContent(elements, tab);
-            refreshAOS();
             return;
         }
 
@@ -201,7 +189,6 @@
             window.requestAnimationFrame(() => {
                 window.requestAnimationFrame(() => {
                     media?.classList.remove("is-changing");
-                    refreshAOS();
                 });
             });
         }, replacementDelay);
@@ -590,7 +577,6 @@
             updatePriorityProgress(state.prioritySwiper);
         }
 
-        refreshAOS();
     }
 
     function handleReducedMotionChange() {
@@ -629,7 +615,6 @@
             handleReducedMotionChange
         );
 
-        refreshAOS();
 
         document.dispatchEvent(
             new CustomEvent("bathnice:all-services-ready")
@@ -657,7 +642,6 @@
 
             state.prioritySwiper?.update();
             updatePriorityProgress(state.prioritySwiper);
-            refreshAOS();
         },
         {
             once: true

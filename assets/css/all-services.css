@@ -204,14 +204,15 @@
 .services-full-feature__inner {
     display: grid;
     width: 100%;
-    max-width: 45rem;
+    max-width: 52rem;
     gap: var(--space-6);
     padding:
         clamp(4rem, 7vw, 7rem) clamp(2rem, 5vw, 5.5rem);
 }
 
 .services-full-feature__inner h2 {
-    max-width: 11ch;
+    max-width: 19ch;
+    font-size: clamp(2.9rem, 4vw, 4.5rem);
 }
 
 .services-full-feature__inner .lead {
@@ -259,7 +260,8 @@
     border-bottom: 0;
 }
 
-.services-full-feature:hover .services-full-feature__visual>img {
+.services-full-feature:hover .services-full-feature__visual>img,
+.services-full-feature:focus-within .services-full-feature__visual>img {
     transform: scale(1.025);
 }
 
@@ -394,7 +396,7 @@
 .services-tile-story__layout {
     display: grid;
     grid-template-columns:
-        minmax(22rem, 0.88fr) minmax(0, 1.12fr);
+        minmax(27rem, 0.95fr) minmax(0, 1.05fr);
     align-items: center;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -405,7 +407,7 @@
 }
 
 .services-tile-story__copy h2 {
-    max-width: 11ch;
+    max-width: 16ch;
 }
 
 .services-tile-story__rows {
@@ -700,7 +702,8 @@
 }
 
 .services-accessible-feature__copy h2 {
-    max-width: 12ch;
+    max-width: 19ch;
+    font-size: clamp(2.9rem, 4vw, 4.5rem);
 }
 
 .services-accessible-feature__copy>p {
@@ -757,7 +760,8 @@
     line-height: 1.65;
 }
 
-.services-accessible-feature:hover .services-accessible-feature__media img {
+.services-accessible-feature:hover .services-accessible-feature__media img,
+.services-accessible-feature:focus-within .services-accessible-feature__media img {
     transform: scale(1.025);
 }
 
@@ -929,6 +933,26 @@
     overflow: visible;
 }
 
+/* Progressive enhancement: keep every priority readable without Swiper. */
+.services-priorities__slider:not(.swiper-initialized) .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    transform: none;
+}
+
+.services-priorities__slider:not(.swiper-initialized)
+    .services-priorities__slide {
+    width: auto;
+}
+
+.services-priorities:has(.services-priorities__slider:not(.swiper-initialized))
+    .services-priorities__controls,
+.services-priorities:has(.services-priorities__slider:not(.swiper-initialized))
+    .services-priorities__footer {
+    display: none;
+}
+
 .services-priorities__slide {
     display: grid;
     width: min(28rem, 34vw);
@@ -1073,7 +1097,7 @@
 .services-provider-questions__layout {
     display: grid;
     grid-template-columns:
-        minmax(20rem, 0.78fr) minmax(0, 1.22fr);
+        minmax(30rem, 0.85fr) minmax(0, 1.15fr);
     align-items: start;
     gap: clamp(4rem, 8vw, 8rem);
 }
@@ -1084,7 +1108,8 @@
 }
 
 .services-provider-questions__intro h2 {
-    max-width: 10.5ch;
+    max-width: 19ch;
+    font-size: clamp(2.8rem, 3.8vw, 4.1rem);
 }
 
 .services-provider-questions__intro>p {
@@ -1123,7 +1148,7 @@
 }
 
 .services-faq__heading h2 {
-    max-width: 13ch;
+    max-width: 18ch;
 }
 
 .services-faq__accordion {
@@ -1280,6 +1305,10 @@
    ========================================================= */
 
 @media (max-width: 1100px) {
+    .services-priorities__slider:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .services-index__list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1339,7 +1368,7 @@
    14. Tablet
    ========================================================= */
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
 
     .services-index__heading,
     .services-water-features__heading,
@@ -1432,6 +1461,15 @@
    ========================================================= */
 
 @media (max-width: 768px) {
+    .services-priorities__slider:not(.swiper-initialized) .swiper-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .services-priorities__slider:not(.swiper-initialized)
+        .services-priorities__slide {
+        width: auto;
+    }
+
     .services-hero .inner-hero__media img {
         object-position: 61% center;
     }
@@ -1883,9 +1921,11 @@
     .services-index__item:hover .services-index__media img,
     .services-index__item:focus-within .services-index__media img,
     .services-full-feature:hover .services-full-feature__visual>img,
+    .services-full-feature:focus-within .services-full-feature__visual>img,
     .services-water-features__panel:hover .services-water-features__media img,
     .services-water-features__panel:focus-within .services-water-features__media img,
     .services-accessible-feature:hover .services-accessible-feature__media img,
+    .services-accessible-feature:focus-within .services-accessible-feature__media img,
     .services-priorities__slide:hover,
     .services-priorities__slide:focus-within {
         transform: none;
