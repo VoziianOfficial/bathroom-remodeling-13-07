@@ -63,6 +63,10 @@
         }
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     function preloadImage(source) {
         return new Promise((resolve, reject) => {
             const image = new Image();
@@ -563,6 +567,7 @@
         initPriorityInteractionPause(root);
         updatePriorityAutoplayMode();
         updatePriorityProgress(state.prioritySwiper);
+        requestGlobalLayoutRefresh();
     }
 
     /* =======================================================
@@ -619,6 +624,8 @@
         document.dispatchEvent(
             new CustomEvent("bathnice:all-services-ready")
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {

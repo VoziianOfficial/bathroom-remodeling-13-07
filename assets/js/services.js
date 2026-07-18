@@ -88,6 +88,10 @@
         return reducedMotionQuery.matches;
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     function getHeaderOffset() {
         const header = document.querySelector(
             selectors.header
@@ -1292,6 +1296,7 @@
             );
 
             state.swiperInstances.add(swiper);
+            requestGlobalLayoutRefresh();
         } catch (error) {
             swiperRoot.dataset.swiperInitialized =
                 "error";
@@ -1495,6 +1500,8 @@
                 "bathnice:services-ready"
             )
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {

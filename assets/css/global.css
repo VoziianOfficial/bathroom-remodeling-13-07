@@ -792,16 +792,23 @@ small {
 }
 
 .image-mask-reveal {
-    clip-path: none;
-    transition: clip-path 850ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 1;
+    visibility: visible;
+    clip-path: inset(0);
+    transition:
+        opacity 520ms ease,
+        clip-path 850ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.image-reveals-ready .image-mask-reveal {
-    clip-path: inset(0 0 100% 0);
+.image-reveals-ready .image-mask-reveal:not(.is-visible) {
+    opacity: 0.35;
+    clip-path: inset(0 0 8% 0);
 }
 
 .image-mask-reveal.is-visible {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    visibility: visible;
+    clip-path: inset(0);
 }
 
 /* =========================================================
@@ -2672,7 +2679,9 @@ html:not(.aos-ready) [data-aos] {
     }
 
     .image-mask-reveal {
-        clip-path: none;
+        opacity: 1;
+        visibility: visible;
+        clip-path: inset(0);
     }
 
     .image-zoom:hover img,
@@ -2715,4 +2724,24 @@ html:not(.aos-ready) [data-aos] {
     .section {
         padding-block: 1.5rem;
     }
+}
+
+
+/* AOS content must remain visible until initialization succeeds */
+html:not(.aos-ready) [data-aos] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Prevent AOS from permanently hiding content */
+.aos-ready [data-aos].aos-animate {
+    visibility: visible;
+}
+
+/* Emergency visibility fallback after page initialization */
+.js-enhanced [data-aos]:not(.aos-init) {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
 }

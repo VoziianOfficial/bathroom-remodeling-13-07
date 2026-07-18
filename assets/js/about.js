@@ -464,6 +464,10 @@
         updateParallaxMode();
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     /* =======================================================
        Page Initialization
        ======================================================= */
@@ -516,6 +520,8 @@
                 }
             })
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {

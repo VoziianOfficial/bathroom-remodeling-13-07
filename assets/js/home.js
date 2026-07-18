@@ -90,6 +90,10 @@
         return null;
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     /* =======================================================
        Service Mosaic
        ======================================================= */
@@ -138,12 +142,15 @@
             }
         });
 
+        requestGlobalLayoutRefresh();
     }
 
     function destroyServiceMosaicSwiper() {
         state.serviceSwiper = destroySwiper(
             state.serviceSwiper
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     function updateServiceMosaicMode() {
@@ -366,6 +373,7 @@
         initMaterialsInteractionPause(root);
         updateMaterialsAutoplayMode();
         updateMaterialsProgress(state.materialsSwiper);
+        requestGlobalLayoutRefresh();
     }
 
     /* =======================================================
@@ -416,12 +424,15 @@
             }
         });
 
+        requestGlobalLayoutRefresh();
     }
 
     function destroyStorySwiper() {
         state.storySwiper = destroySwiper(
             state.storySwiper
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     function updateStoryMode() {
@@ -920,6 +931,8 @@
         document.dispatchEvent(
             new CustomEvent("bathnice:home-ready")
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {

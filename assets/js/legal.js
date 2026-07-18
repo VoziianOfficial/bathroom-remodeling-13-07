@@ -191,6 +191,10 @@
         );
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     /* =======================================================
        Browser History
        ======================================================= */
@@ -1094,6 +1098,8 @@
                 sections: state.sections.length
             }
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {

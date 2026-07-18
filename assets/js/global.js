@@ -21,18 +21,42 @@
  */
 
 (() => {
-    const config = window.BATHNICE_CONFIG;
+    const fallbackConfig = {
+        brand: {
+            name: "BathNice"
+        },
+        company: {},
+        contact: {},
+        services: [],
+        urls: {},
+        navigation: {
+            main: [],
+            legal: []
+        },
+        callsToAction: {},
+        footer: {},
+        accessibility: {
+            backToTopLabel: "Back to top"
+        }
+    };
 
-    if (!config) {
-        return;
+    const config = window.BATHNICE_CONFIG || fallbackConfig;
+
+    if (!window.BATHNICE_CONFIG) {
+        console.warn(
+            "BathNice config was unavailable; using minimal UI defaults."
+        );
     }
 
-        const state = {
+    const state = {
         mobileMenuOpen: false,
         previousFocusedElement: null,
         dropdownCloseTimer: null,
         aosInitialized: false,
-        scrollTicking: false
+        scrollTicking: false,
+        imageRevealObserver: null,
+        imageRevealFallbackTimer: 0,
+        layoutRefreshFrame: 0
     };
 
     const selectors = {
@@ -858,6 +882,25 @@
             });
     }
 
+    function cleanupMobileMenuState() {
+        const { menu, openButtons } = getMobileMenuElements();
+
+        state.mobileMenuOpen = false;
+        state.previousFocusedElement = null;
+
+        document.body.classList.remove("menu-open");
+        setPageInert(false);
+
+        if (menu) {
+            menu.classList.remove("is-open");
+            menu.setAttribute("aria-hidden", "true");
+        }
+
+        openButtons.forEach((button) => {
+            button.setAttribute("aria-expanded", "false");
+        });
+    }
+
     function openMobileMenu(trigger = null) {
         const { menu, openButtons } = getMobileMenuElements();
 
@@ -971,6 +1014,8 @@
         const { menu, openButtons, closeButtons } =
             getMobileMenuElements();
 
+        cleanupMobileMenuState();
+
         if (!menu || !openButtons.length) {
             return;
         }
@@ -1029,6 +1074,11 @@
             {
                 passive: true
             }
+        );
+
+        window.addEventListener(
+            "pageshow",
+            cleanupMobileMenuState
         );
     }
 
@@ -1391,9 +1441,49 @@
             });
     }
 
-    function initImageMaskReveals() {
+    function revealImageMaskElement(element) {
+        element.classList.add("is-visible");
+
+        if (state.imageRevealObserver) {
+            state.imageRevealObserver.unobserve(element);
+        }
+    }
+
+    function revealAllImageMaskElements(root = document) {
+        root.querySelectorAll(selectors.imageMask).forEach(
+            revealImageMaskElement
+        );
+    }
+
+    function hasUsableLayout(element) {
+        const rect = element.getBoundingClientRect();
+
+        return rect.width > 0 && rect.height > 0;
+    }
+
+    function isInOrAboveViewport(element) {
+        const rect = element.getBoundingClientRect();
+        const viewportHeight =
+            window.innerHeight ||
+            document.documentElement.clientHeight;
+
+        return (
+            rect.top <= viewportHeight * 1.05 &&
+            rect.bottom >= -viewportHeight * 0.1
+        );
+    }
+
+    function scheduleImageRevealFallback() {
+        window.clearTimeout(state.imageRevealFallbackTimer);
+
+        state.imageRevealFallbackTimer = window.setTimeout(() => {
+            revealAllImageMaskElements();
+        }, 1500);
+    }
+
+    function initImageMaskReveals(root = document) {
         const elements = Array.from(
-            document.querySelectorAll(selectors.imageMask)
+            root.querySelectorAll(selectors.imageMask)
         );
 
         if (!elements.length) {
@@ -1408,9 +1498,7 @@
             reducedMotion ||
             !("IntersectionObserver" in window)
         ) {
-            elements.forEach((element) => {
-                element.classList.add("is-visible");
-            });
+            elements.forEach(revealImageMaskElement);
 
             return;
         }
@@ -1419,25 +1507,103 @@
             "image-reveals-ready"
         );
 
-        const observer = new IntersectionObserver(
-            (entries, revealObserver) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+        if (!state.imageRevealObserver) {
+            state.imageRevealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
 
-                    entry.target.classList.add("is-visible");
-                    revealObserver.unobserve(entry.target);
-                });
-            },
-            {
-                rootMargin: "0px 0px -10% 0px",
-                threshold: 0.12
-            }
-        );
+                        if (hasUsableLayout(entry.target)) {
+                            revealImageMaskElement(entry.target);
+                            return;
+                        }
+
+                        window.requestAnimationFrame(() => {
+                            revealImageMaskElement(entry.target);
+                        });
+                    });
+                },
+                {
+                    rootMargin: "0px 0px -10% 0px",
+                    threshold: 0.12
+                }
+            );
+        }
 
         elements.forEach((element) => {
-            observer.observe(element);
+            if (element.classList.contains("is-visible")) {
+                return;
+            }
+
+            if (
+                hasUsableLayout(element) &&
+                isInOrAboveViewport(element)
+            ) {
+                revealImageMaskElement(element);
+                return;
+            }
+
+            state.imageRevealObserver.observe(element);
+        });
+
+        scheduleImageRevealFallback();
+    }
+
+    function revealAllAosElements() {
+        document.querySelectorAll("[data-aos]").forEach((element) => {
+            element.style.opacity = "1";
+            element.style.transform = "none";
+            element.style.visibility = "visible";
+        });
+    }
+
+    function isInsideIntentionalHiddenState(element) {
+        return Boolean(
+            element.closest(
+                [
+                    ".mobile-menu:not(.is-open)",
+                    ".services-dropdown:not(.is-open)",
+                    "[data-accordion-panel][hidden]",
+                    "[data-hotspot-panel][hidden]",
+                    "[role='tabpanel'][hidden]"
+                ].join(",")
+            )
+        );
+    }
+
+    function revealStaleAosElementsInViewport() {
+        const viewportHeight =
+            window.innerHeight ||
+            document.documentElement.clientHeight;
+
+        document.querySelectorAll("[data-aos]").forEach((element) => {
+            if (isInsideIntentionalHiddenState(element)) {
+                return;
+            }
+
+            const rect = element.getBoundingClientRect();
+
+            if (
+                rect.width <= 0 ||
+                rect.height <= 0 ||
+                rect.bottom <= 0 ||
+                rect.top >= viewportHeight
+            ) {
+                return;
+            }
+
+            const style = window.getComputedStyle(element);
+
+            if (
+                Number(style.opacity) === 0 ||
+                style.visibility === "hidden"
+            ) {
+                element.style.opacity = "1";
+                element.style.transform = "none";
+                element.style.visibility = "visible";
+            }
         });
     }
 
@@ -1451,50 +1617,93 @@
         ).matches;
 
         if (reducedMotion) {
-            document
-                .querySelectorAll("[data-aos]")
-                .forEach((element) => {
-                    element.removeAttribute("data-aos");
-                    element.removeAttribute("data-aos-delay");
-                    element.removeAttribute("data-aos-duration");
-                });
+            document.querySelectorAll("[data-aos]").forEach((element) => {
+                element.removeAttribute("data-aos");
+                element.removeAttribute("data-aos-delay");
+                element.removeAttribute("data-aos-duration");
+            });
 
+            revealAllAosElements();
             return;
         }
 
-        if (
-            window.AOS &&
-            typeof window.AOS.init === "function"
-        ) {
-            try {
-                document.documentElement.classList.add(
-                    "aos-ready"
-                );
+        if (!window.AOS || typeof window.AOS.init !== "function") {
+            document.documentElement.classList.remove("aos-ready");
+            revealAllAosElements();
+            return;
+        }
 
-                window.AOS.init({
-                    once: true,
-                    mirror: false,
-                    offset: 80,
-                    duration: 760,
-                    easing:
-                        "cubic-bezier(0.22, 1, 0.36, 1)",
-                    anchorPlacement: "top-bottom",
-                    disable: () => {
-                        return window.matchMedia(
-                            "(prefers-reduced-motion: reduce)"
-                        ).matches;
-                    }
-                });
+        try {
+            window.AOS.init({
+                once: true,
+                mirror: false,
+                offset: 50,
+                duration: 720,
+                easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+                anchorPlacement: "top-bottom"
+            });
 
-                state.aosInitialized = true;
-            } catch (error) {
-                document.documentElement.classList.remove(
-                    "aos-ready"
-                );
-                console.warn("AOS enhancement unavailable.", error);
-            }
+            state.aosInitialized = true;
+            document.documentElement.classList.add("aos-ready");
+
+            requestAnimationFrame(() => {
+                refreshAOSLayout();
+                revealStaleAosElementsInViewport();
+            });
+
+            window.setTimeout(() => {
+                refreshAOSLayout();
+                revealStaleAosElementsInViewport();
+            }, 350);
+
+            window.setTimeout(() => {
+                revealStaleAosElementsInViewport();
+            }, 1500);
+        } catch (error) {
+            document.documentElement.classList.remove("aos-ready");
+            revealAllAosElements();
+            console.warn("AOS enhancement unavailable.", error);
         }
     }
+
+    function refreshAOSLayout() {
+        if (
+            !state.aosInitialized ||
+            !window.AOS ||
+            typeof window.AOS.refreshHard !== "function"
+        ) {
+            return;
+        }
+
+        try {
+            window.AOS.refreshHard();
+        } catch (error) {
+            state.aosInitialized = false;
+            document.documentElement.classList.remove("aos-ready");
+            revealAllAosElements();
+            console.warn("AOS refresh unavailable.", error);
+        }
+    }
+
+    function refreshLayout() {
+        window.cancelAnimationFrame(state.layoutRefreshFrame);
+
+        state.layoutRefreshFrame = window.requestAnimationFrame(() => {
+            refreshLucideIcons();
+            initImageMaskReveals(document);
+            updateHeaderHeight();
+            refreshAOSLayout();
+            revealStaleAosElementsInViewport();
+        });
+    }
+
+    window.BathNiceUI = Object.assign(
+        {},
+        window.BathNiceUI,
+        {
+            refreshLayout
+        }
+    );
 
     function initExternalSecurity() {
         document

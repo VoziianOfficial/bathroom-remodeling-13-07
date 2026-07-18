@@ -550,6 +550,10 @@
             `${window.location.pathname}${window.location.search}`;
     }
 
+    function requestGlobalLayoutRefresh() {
+        window.BathNiceUI?.refreshLayout?.();
+    }
+
     function getServiceCandidates(service) {
         return [
             service?.formValue,
@@ -1066,6 +1070,8 @@
         document.dispatchEvent(
             new CustomEvent("bathnice:contact-ready")
         );
+
+        requestGlobalLayoutRefresh();
     }
 
     if (document.readyState === "loading") {
