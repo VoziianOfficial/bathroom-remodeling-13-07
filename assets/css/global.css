@@ -106,6 +106,7 @@ html {
     width: 100%;
     max-width: 100%;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     overflow-x: clip;
     text-size-adjust: 100%;
 }
@@ -812,6 +813,8 @@ small {
     z-index: var(--z-header);
     top: 0;
     width: 100%;
+    max-width: 100%;
+    inline-size: 100%;
     height: var(--header-height);
     border-bottom: 1px solid var(--color-border-light);
     background: var(--color-charcoal);
